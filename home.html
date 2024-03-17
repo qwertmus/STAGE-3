@@ -1,0 +1,134 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose Mortgage | Home</title>
+    <link rel="stylesheet" href="style/mobile.css">
+    <link rel="stylesheet" media="only screen and (min-width:720px)" href="style/desktop.css"/>
+</head>
+
+<body>
+
+<!-- header starts -->
+<header>
+
+  <div class="logo">
+    <h1 class="logo-text"><span>Rose</span>Mortgage</h1>
+  </div>
+
+  <ul class="navbar">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="register.html">Sign Up</a></li>
+    <li><a href="login.html">Login</a></li>
+    <li>
+      <a href="#">
+        <i class="user"></i>
+        Name
+        <i class="dropdown"></i>
+      </a>
+
+      <ul>
+        <li><a href="#">My Profile</a></li>
+        <li><a href="#" class="logout">Logout</a></li>
+      </ul>
+
+    </li>
+  </ul>
+      <!--menu icon -->
+      <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+  </div>
+
+</header>
+
+<!-- header ends -->
+
+<div class="main-container">
+
+  <div class="inner-container">
+      <div class="banner">
+        <div class="banner-text">
+            <h5>Welcome To</h5>
+            <h1>Rose Mortgage</h1>
+        </div>
+     </div>
+
+<form class="homeform" action="register.html" method="post">
+    <h4>Calculate Affordability</h4>
+    <div class = "affordability-container">
+      <div class="input-group">
+        <label for="income">Income:</label>
+        <div class="prefix">£<input class="control" type="text" name="income" required placeholder="Income"></div> 
+      </div>
+      <div class="input-group">
+        <label for="propertyvalue">Property Value:</label>
+        <div class="prefix">£<input class="control" type="text" name="propertyvalue" required placeholder="Property Value"></div>
+      </div>
+      <div class="input-group">
+        <label for="deposit">Deposit:</label>
+        <div class="prefix">£<input class="control" type="text" name="deposit" required placeholder="Deposit"></div> 
+      </div>
+      <div class="input-group">
+      <label for="mortgageterm">Mortgage Term:</label>
+      <select class="control" name="mortgageterm" required>
+        <option value="">Select Mortgage Term</option>
+        <option value="2">2 years</option>
+        <option value="5">5 years</option>
+        <option value="10">10 years</option>
+        <option value="15">15 years</option>
+        <option value="20">20 years</option>
+        <option value="25">25 years</option>
+        <option value="30">30 years</option>
+       </select>
+       </div>
+     </div>
+    <input type="submit" name="submit" value="Calculate" class="form-btn">
+ </form>
+
+</div>
+</div>
+
+
+
+
+
+
+<!-- footer starts -->
+<footer>
+
+  <div class ="footer-container">
+  
+      <div class="footer-logo">
+          <h1 class="logo-text"><a href="home.html"><span>Rose</span>Mortgage</a></h1>
+      </div>
+    
+      <div class="contact">
+          <a href="#" class="contact-address" target="blank">
+                   Adress line 1
+              <br/>Adress line2
+              <br/>city
+              <br/>postcode
+          </a>
+          <div class="contact-details">
+              <br/><a href="mailto:#">Email: xyz</a>
+              <br/><a href="tel:#">Tel: xyz</a>
+          </div>
+      </div>
+
+      <div class="footer-bottom">
+          <div class="copyright">Rose Mortgage
+          <span></span> 2024 All Rights Reserved
+          </div>
+  
+      </div>
+  </div>
+  
+</footer> 
+<!-- footer ends -->
+</body>
+</html>

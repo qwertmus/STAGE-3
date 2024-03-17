@@ -1,0 +1,8 @@
+.hamburger{
+    display: none;
+}
+
+/*main pages white container*/
+.main-container .inner-container{
+   width: 60%;
+ }
