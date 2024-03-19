@@ -8,6 +8,7 @@
     <title>Rose Mortgage | Home</title>
     <link rel="stylesheet" href="style/mobile.css">
     <link rel="stylesheet" media="only screen and (min-width:720px)" href="style/desktop.css"/>
+    <link rel="stylesheet" href="style/homeproductstable.css">
 </head>
 
 <body>
@@ -51,46 +52,113 @@
 <div class="main-container">
 
   <div class="inner-container">
+
       <div class="banner">
         <div class="banner-text">
             <h5>Welcome To</h5>
             <h1>Rose Mortgage</h1>
         </div>
-     </div>
+      </div>
 
-<form class="homeform" action="register.html" method="post">
-    <h4>Calculate Affordability</h4>
-    <div class = "affordability-container">
-      <div class="input-group">
-        <label for="income">Income:</label>
-        <div class="prefix">£<input class="control" type="text" name="income" required placeholder="Income"></div> 
-      </div>
-      <div class="input-group">
-        <label for="propertyvalue">Property Value:</label>
-        <div class="prefix">£<input class="control" type="text" name="propertyvalue" required placeholder="Property Value"></div>
-      </div>
-      <div class="input-group">
-        <label for="deposit">Deposit:</label>
-        <div class="prefix">£<input class="control" type="text" name="deposit" required placeholder="Deposit"></div> 
-      </div>
-      <div class="input-group">
-      <label for="mortgageterm">Mortgage Term:</label>
-      <select class="control" name="mortgageterm" required>
-        <option value="">Select Mortgage Term</option>
-        <option value="2">2 years</option>
-        <option value="5">5 years</option>
-        <option value="10">10 years</option>
-        <option value="15">15 years</option>
-        <option value="20">20 years</option>
-        <option value="25">25 years</option>
-        <option value="30">30 years</option>
-       </select>
+     <div class="products-table">
+
+      <table class="products">
+        <thead>
+          <tr>
+            <th>First Time Buyer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> Fixed</td>
+            <td>Tracker</td>
+          </tr>
+          <tr>
+              <td>Fixed Product 1</td>
+              <td>Tracker Product 1</td>
+          </tr>
+          <tr>
+              <td>Fixed Product 2</td>
+              <td>Tracker Product 2</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="products">
+        <thead>
+          <tr>
+            <th>Remortgage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> Fixed</td>
+            <td>Tracker</td>
+          </tr>
+          <tr>
+              <td>Fixed Product 1</td>
+              <td>Tracker Product 1</td>
+          </tr>
+          <tr>
+              <td>Fixed Product 2</td>
+              <td>Tracker Product 2</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="products">
+        <thead>
+          <tr>
+            <th>Move House</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> Fixed</td>
+            <td>Tracker</td>
+          </tr>
+          <tr>
+              <td>Fixed Product 1</td>
+              <td>Tracker Product 1</td>
+          </tr>
+          <tr>
+              <td>Fixed Product 2</td>
+              <td>Tracker Product 2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+     <form class="homeform" action="register.html" method="post">
+      <h4>Calculate Affordability</h4>
+      <div class = "affordability-container">
+        <div class="input-group">
+          <label for="income">Income:</label>
+          <div class="prefix">£<input class="control" type="text" name="income" required placeholder="Income"></div> 
+        </div>
+        <div class="input-group">
+          <label for="propertyvalue">Property Value:</label>
+          <div class="prefix">£<input class="control" type="text" name="propertyvalue" required placeholder="Property Value"></div>
+        </div>
+        <div class="input-group">
+          <label for="deposit">Deposit:</label>
+          <div class="prefix">£<input class="control" type="text" name="deposit" required placeholder="Deposit"></div> 
+        </div>
+        <div class="input-group">
+        <label for="mortgageterm">Mortgage Term:</label>
+        <select class="control" name="mortgageterm" required>
+          <option value="">Select Mortgage Term</option>
+          <option value="2">2 years</option>
+          <option value="5">5 years</option>
+          <option value="10">10 years</option>
+         </select>
+         </div>
        </div>
-     </div>
-    <input type="submit" name="submit" value="Calculate" class="form-btn">
- </form>
+      <input type="submit" name="submit" value="Calculate" class="form-btn">
+   </form>
 
-</div>
+  </div>
 </div>
 
 

@@ -1,0 +1,35 @@
+.UserMainPagefirst h4{
+  font-size: xx-large;
+  color: #326838;
+  width: 90%;
+  text-align: left;
+  margin: 20px auto 20px;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+.UserMainPagesecond h4{
+    font-size: xx-large;
+    color: #326838;
+    width: 90%;
+    text-align: left;
+    margin: 20px auto 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+.inner-container img {
+    display: flex;
+    max-width: 80%;
+    max-height: 10%;
+    margin: auto 60px auto;   
+}
+.main-container h3{
+    font-size: larger;
+    color: #326838;
+    width: 90%;
+    border-bottom: 2px solid #326838;
+    margin: 20px auto 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: right;
+  }
+
