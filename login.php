@@ -46,7 +46,7 @@
 
 
 <div class="main-container">
-    <form class = "user-form" action="login.html" method="post">
+    <form class = "user-form" action="loginconfig.php" method="post">
     <h3>Login</h3>
           <input type="email" name="email" required placeholder="Email">
           <input type="password" name="password" required placeholder="Password">

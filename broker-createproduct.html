@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose Mortgage | Home</title>
+    <link rel="stylesheet" href="style/mobile.css">
+    <link rel="stylesheet" media="only screen and (min-width:720px)" href="style/desktop.css"/>
+</head>
+
+<body>
+
+<!-- header starts -->
+<header>
+
+  <div class="logo">
+    <h1 class="logo-text"><span>Rose</span>Mortgage</h1>
+  </div>
+
+  <ul class="navbar">
+    <li><a href="broker-account.html">Account</a></li>
+    <li><a href="broker-manageproduct.html">Manage Products</a></li>
+    <li>
+      <a href="#">
+        <i class="user"></i>
+        Name
+        <i class="dropdown"></i>
+      </a>
+
+      <ul>
+        <li><a href="broker-account.html">My Profile</a></li>
+        <li><a href="#" class="logout">Logout</a></li>
+      </ul>
+
+    </li>
+  </ul>
+      <!--menu icon -->
+      <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+  </div>
+
+</header>
+
+<!-- header ends -->
+
+<div class="main-container">
+
+  <div class="inner-container">
+      <div class="banner">
+        <div class="banner-text">
+            <h5>Welcome To</h5>
+            <h1>Rose Mortgage</h1>
+        </div>
+     </div>
+
+      <h4>Mortgage Products</h4>
+      <div class = "affordability-container">
+        <div class="input-group">
+          <label for="interestrate">Interest Rate :</label>
+          <div class="prefix">%<input class="control" type="text" name="interestrate" required placeholder="Interest Rate"></div> 
+        </div>
+        <div class="input-group">
+          <label for="mortgageterm">Mortgage Term:</label>
+          <div class="prefix"><input class="control" type="text" name="mortgageterm" required placeholder="Mortgage Term"></div>
+        </div>
+        <div class="input-group">
+          <label for="employmentstatuseligibility">Employment Status Eligibility:</label>
+          <select class="control" name="employmentstatuseligibility" required>
+            <option value="">Select Employment Status</option>
+            <option value="Full Time">Full Time</option>
+            <option value="Part-Time">Part-Time</option>
+            <option value="Self Employed">Self Employed</option>
+           </select>
+           </div>
+            <div class="input-group">
+              <label for="ltv">LTV
+                (Loan To Value) :</label>
+              <div class="prefix">%<input class="control" type="text" name="ltv" required placeholder="LTV"></div> 
+            </div>
+            <div class="input-group">
+                <label for="type">Type:</label>
+                <select class="control" name="type" required>
+                  <option value="">Select Type</option>
+                  <option value="Tracker">Tracker</option>
+                  <option value="Fixed-Rate">Fixed-Rate</option>
+                 </select>
+                 </div>
+            <div class="input-group">
+                    <label for="fee">Fee (Optional) :</label>
+                    <div class="prefix"><input class="control" type="text" name="fee" required placeholder="Fee"></div> 
+                  </div>
+                  <div class="input-group">
+                    <label for="monthlyrate">Monthly Rate :</label>
+                    <div class="prefix"><input class="control" type="text" name="monthlyrate" required placeholder="Monthly Rate"></div> 
+                  </div>
+                  <div class="input-group">
+                    <label for="creditscore">Credit Score :</label>
+                    <div class="prefix"><input class="control" type="text" name="creditscore" required placeholder="Credit Score"></div> 
+                  </div>
+                  <div class="input-group">
+                    <label for="age">Age :</label>
+                    <div class="prefix"><input class="control" type="text" name="age" required placeholder="Age"></div> 
+                  </div>
+       </div>
+      <input type="submit" name="submit" value="Create" class="form-btn">
+   </form>
+
+</div>
+</div>
+
+
+
+
+
+
+<!-- footer starts -->
+<footer>
+
+  <div class ="footer-container">
+  
+      <div class="footer-logo">
+          <h1 class="logo-text"><a href="home.html"><span>Rose</span>Mortgage</a></h1>
+      </div>
+    
+      <div class="contact">
+          <a href="#" class="contact-address" target="blank">
+                   Adress line 1
+              <br/>Adress line2
+              <br/>city
+              <br/>postcode
+          </a>
+          <div class="contact-details">
+              <br/><a href="mailto:#">Email: xyz</a>
+              <br/><a href="tel:#">Tel: xyz</a>
+          </div>
+      </div>
+
+      <div class="footer-bottom">
+          <div class="copyright">Rose Mortgage
+          <span></span> 2024 All Rights Reserved
+          </div>
+  
+      </div>
+  </div>
+  
+</footer> 
+<!-- footer ends -->
+</body>
+</html>

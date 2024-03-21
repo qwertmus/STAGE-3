@@ -16,7 +16,7 @@
     </a>
 
     <ul>
-      <li><a href="#">My Profile</a></li>
+      <li><a href="profile.html">My Profile</a></li>
       <li><a href="#" class="logout">Logout</a></li>
     </ul>
 

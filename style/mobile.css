@@ -369,36 +369,86 @@ footer {
 }
 /* homepage affordabilitycalculator ends*/
 
-/* comparequotes starts*/
-.main-container .comparequotes-container
+
+
+
+
+
+
+
+
+/* search for products starts*/
+.main-container .productsearch-container
 {
   background: #fff;
   display: flex;
   flex-direction: column;
   padding: 50px 75px;
+  width: 1200px;
 }
 
-.main-container .comparequotes-container .comparequote-group
+.main-container .productsearch-container h4
 {
-  margin: 5% 0%;
+  font-size: 20px;
+  padding-bottom: 1vh;
 }
 
-.main-container .comparequotes-container .comparequote-group .quote-details
+.main-container .productsearch-container .productsearch-table
+{
+  min-width: 100%;
+  margin: 1vh 0px;
+  padding: 2vh 0px;
+  border-top: 2px solid #326838;
+  border-bottom: 2px solid #326838
+}
+
+.main-container .productsearch-container .productsearch-division
+{
+  margin: 1vh 0px;
+  padding: 1vh 0px;
+}
+
+.main-container .productsearch-container .productsearch-division .productsearch-resultarea
 {
   display: flex;
-  flex-direction: column; 
-  align-items: flex-start;
-  border-bottom: 2px solid #326838;
+  flex-direction: column;
+  align-items: center;
 }
 
-.main-container .comparequotes-container .comparequote-group .quote-details .quote-span
+.main-container .productsearch-container .productsearch-division .productsearch-resultarea .productsearch-result
 {
-  padding: 12px;
+  padding:20px;
+  width: 95%;
+  box-shadow: 0px 0px 5px black;
+  display: flex;
+  justify-content: space-between;
 }
 
-.main-container .comparequotes-container .comparequote-group .quote-details .quote-textarea
+.main-container .productsearch-container .productsearch-division .productsearch-table .productsearch-header
 {
-  margin-bottom: 5%;
+  text-align: left;
 }
 
-/* comparequotes ends*/
+.main-container .productsearch-container .productsearch-division .productsearch-table .productsearch-td
+{
+  padding-top: 10px;
+}
+
+.main-container .productsearch-container .productsearch-division .productsearch-table .productsearch-field
+{
+  color: black;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.main-container .productsearch-container .productsearch-division .productsearch-button
+{
+  background-color: #326838;
+  color:white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* search for products ends*/

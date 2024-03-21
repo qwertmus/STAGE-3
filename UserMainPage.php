@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +9,7 @@
     <title>Rose Mortgage | xyz</title>
     <link rel="stylesheet" href="style/mobile.css">
     <link rel="stylesheet" media="only screen and (min-width:720px)" href="style/desktop.css"/>
+    <link rel="stylesheet" media="only screen and (min-width:720px)" href="style/usermainpage.css"/>
 
 
 
@@ -32,12 +36,12 @@
     <li>
       <a href="#">
         <i class="user"></i>
-        Name
+        <?php echo $_SESSION['user_name']; ?>
         <i class="dropdown"></i>
       </a>
 
       <ul>
-        <li><a href="#">My Profile</a></li>
+        <li><a href="profile.html">My Profile</a></li>
         <li><a href="#" class="logout">Logout</a></li>
       </ul>
 
@@ -57,22 +61,21 @@
 <div class="main-container">
     <div class="inner-container">
 
-        <div class="account-banner">
-            <div class="banner-text">
-                <h4>My Profile</h4>
-            </div>
-        </div>
-
-
-
-       
-
-
-
-
-
-
-
+      
+      <!--code here-->
+      
+        <h3><?php echo $_SESSION['user_name']; ?></h3>
+              
+          <div class="UserMainPagefirst">      
+              <h4>Receive mortgage quote</h4>  
+              <img src="images\calculate-mainUserpage.jpg" alt="calculate quote image" height=250px width=800px>
+          </div>        
+          <div class="UserMainPagesecond">
+              <h4>View mortgage quote history</h4>     
+              <img src="images\row-of-books.webp" class="ContainerMainUser" alt="books on shelf, view quotes" height=250px width=800px>
+          </div>   
+        <h3></h3>
+     
 
     </div>
 </div>
