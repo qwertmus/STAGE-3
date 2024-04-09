@@ -50,12 +50,12 @@
         <form class ="user-form" action="register.php" method="post">
            <h3>Signup</h3>
      
-           <input class="control" type="text" name="firstname" required placeholder="First Name">
-           <input class="control" type="text" name="middlename" required placeholder="Middle Name">
-           <input class="control" type="text" name="surname" required placeholder="Surname">
+           <input class="control" type="text" name="firstname" required placeholder="First Name" maxlength='30'>
+           <input class="control" type="text" name="middlename" placeholder="Middle Name" maxlength='30'>
+           <input class="control" type="text" name="surname" required placeholder="Surname" maxlength='30'>
            <input class="control" type="email" name="email" required placeholder="Email">
-           <input class="control" type="password" name="userpassword" required placeholder="Password">
-           <input class="control" type="password" name="cpassword" required placeholder="Confirm password">
+           <input class="control" type="password" name="userpassword" required placeholder="Password" maxlength='12'>
+           <input class="control" type="password" name="cpassword" required placeholder="Confirm password" maxlength='12'>
      
            <input type="submit" name="submit" value="Sign Up" class="form-btn">
            <p>or <a href="login.html">Login</a></p>
