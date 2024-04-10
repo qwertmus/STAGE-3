@@ -60,33 +60,37 @@
         </div>
       </div>
 
-     <form class="homeform" action="register.html" method="post">
-      <h4>Calculate Affordability</h4>
-      <div class = "affordability-container">
-        <div class="input-group">
-          <label for="income">Income:</label>
-          <div class="prefix">£<input class="control" type="text" name="income" required placeholder="Income"></div> 
+      <form class="homeform" action="register.html" method="post" onsubmit="calculateAffordability(event)">
+        <h4>Calculate Affordability</h4>
+        <div class="affordability-container">
+          <div class="input-group">
+            <label for="interest">Interest rate:</label>
+            <div class="prefix">%<input class="control" type="text" id="interest" name="interest" required placeholder="Interest"></div>
+          </div>
+          <div class="input-group">
+            <label for="propertyvalue">Property Value:</label>
+            <div class="prefix">£<input class="control" type="text" id="propertyvalue" name="propertyvalue" required placeholder="Property Value"></div>
+          </div>
+          <div class="input-group">
+            <label for="deposit">Deposit:</label>
+            <div class="prefix">£<input class="control" type="text" id="deposit" name="deposit" required placeholder="Deposit"></div>
+          </div>
+          <div class="input-group">
+            <label for="mortgageterm">Mortgage Term:</label>
+            <select class="control" id="mortgageterm" name="mortgageterm" required>
+              <option value="">Select Mortgage Term</option>
+              <option value="2">2 years</option>
+              <option value="5">5 years</option>
+              <option value="10">10 years</option>
+              <option value="25">25 years</option>
+              <option value="40">40 years</option>
+            </select>
+          </div>
         </div>
-        <div class="input-group">
-          <label for="propertyvalue">Property Value:</label>
-          <div class="prefix">£<input class="control" type="text" name="propertyvalue" required placeholder="Property Value"></div>
-        </div>
-        <div class="input-group">
-          <label for="deposit">Deposit:</label>
-          <div class="prefix">£<input class="control" type="text" name="deposit" required placeholder="Deposit"></div> 
-        </div>
-        <div class="input-group">
-        <label for="mortgageterm">Mortgage Term:</label>
-        <select class="control" name="mortgageterm" required>
-          <option value="">Select Mortgage Term</option>
-          <option value="2">2 years</option>
-          <option value="5">5 years</option>
-          <option value="10">10 years</option>
-         </select>
-         </div>
-       </div>
-      <input type="submit" name="submit" value="Calculate" class="form-btn">
-   </form>
+        <input type="submit" name="submit" value="Calculate" class="form-btn">
+      </form>
+      
+      <script src="calculateAffordability.js"></script>
 
   </div>
 </div>
