@@ -1,3 +1,23 @@
+<?php 
+    session_start();
+    include("includes/connect.php");
+
+    $profileQuery = "SELECT * FROM brokers WHERE broker_id = {$_SESSION['user_id']};";
+    $profileResult = $mysqli->query($profileQuery);
+
+    $profileArray = null;
+
+    while ($obj = $profileResult->fetch_object()) {
+        $profileArray = array(
+            "first_name" => $obj->first_name,
+            "middle_name" => $obj->middle_name,
+            "surname" => $obj->surname,
+            "email_address" => $obj->email_address,
+            "date_of_birth" => $obj->dob
+        );
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +43,7 @@
     <li>
       <a href="#">
         <i class="user"></i>
-        Name
+        <?php echo $_SESSION['user_name']; ?>
         <i class="dropdown"></i>
       </a>
 
@@ -48,73 +68,34 @@
 <h4>My Profile</h4>
       <div class = "affordability-container">
         <div class="input-group">
-    <form action="#" class="form" method="post"></form>
+    <form action="profilechanges.php" class="form" method="post">
           <div class="input-box">
               <label>First Name</label>
-              <input type="text" name="firstname" placeholder="Enter your name">
+              <?php echo "<input type='text' value={$profileArray['first_name']} name='firstname' placeholder='Enter your first name' maxlength='30'>"; ?>
           </div>
 
           <div class="input-box">
               <label>Middle Name</label>
-              <input type="text" name="middlename" placeholder="Enter your name">
+              <?php echo "<input type='text' value={$profileArray['middle_name']} name='middlename' placeholder='Enter your middle name' maxlength='30'>"; ?>
           </div>
 
           <div class="input-box">
               <label>Surname</label>
-              <input type="text" name="surname" placeholder="Enter your name">
-          </div>
-      </div>
-
-      <div class="column">
-          <div class="input-box">
-              <label>Contact Number</label>
-              <input type="number" name="contactnumber" placeholder="Enter your number">
-          </div>
-
-          <div class="input-box">
-              <label>Confirm Number</label>
-              <input type="number" name="confirmnumber" placeholder="Enter your number again">
+              <?php echo "<input type='text' value={$profileArray['surname']} name='surname' placeholder='Enter your surname' maxlength='30'>"; ?>
           </div>
       </div>
 
       <div class="input-box">
           <label>Your Email</label>
-          <input type="email" name="email" placeholder="Enter your Email">
+          <?php echo "<input type='text' value={$profileArray['email_address']} name='email' placeholder='Enter your email'>"; ?>
       </div>
 
       <div class="input-box">
-          <label>postcode</label>
-          <input type="text" name="postcode" placeholder="Enter your postcode">
+          <label>DOB</label>
+          <?php echo "<input type='text' value={$profileArray['date_of_birth']} name='dateofbirth' placeholder='Enter your date of birth'>"; ?>
       </div>
 
-      <div class="input-box">
-          <label>Income</label>
-          <input type="number" name="income" placeholder="Enter your annual income">
-          
-          <div class="select-box Income">
-
-              <select>
-                  <option hidden>Employment type</option>
-                  <option>Full Time</option>
-                  <option>Part Time</option>
-                  <option>Self  employed</option>
-              </select>
-          </div>
-      </div>
-
-      <div class="column">
-          <div class="input-box">
-              <label>DOB</label>
-              <input type="date" name="dateofbirth" placeholder="Enter your DOB">
-          </div>
-
-          <div class="input-box">
-              <label>Credit Score</label>
-              <input type="text" name="creditscore" placeholder="Enter your Credit Score">
-          </div>
-      </div>
-
-      <button name="changedetails">Change Details</button>
+      <button name="changebrokerdetails">Change Details</button>
     </form>
 
 
