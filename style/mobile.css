@@ -1,11 +1,6 @@
 
 
 
-
-
-
-
-
 /*dont add css to this file make a new one for ur page*/
 
 
@@ -57,14 +52,13 @@ header * {
   background-color: white;
 }
 
-
 header .logo {
   height: inherit;
   margin-left: 20px;
   display: flex;
   align-items: center;
 }
-/*need to make dropdown instead for mobile*/
+
 header .navbar {
  margin-left: auto;
 }
@@ -132,6 +126,11 @@ header ul li ul li a.logout {
 
 
 
+
+
+
+
+
 /*background container for each page*/
 .main-container{
   min-height: 100vh;
@@ -186,6 +185,10 @@ header ul li ul li a.logout {
 
 
 
+
+
+
+
  /*signup+login form starts*/
  .main-container .user-form{
   padding: 50px 15px;
@@ -237,6 +240,8 @@ header ul li ul li a.logout {
  }
  /*signup+login form ends*/
 
+
+
 /* homepage affordabilitycalculator starts*/
 .main-container .homeform{
   background: #fff;
@@ -256,7 +261,7 @@ header ul li ul li a.logout {
 .main-container .homeform .affordability-container{
    width: 90%;
    padding-top: 5px;
-padding-bottom: 40px;
+   padding-bottom: 40px;
    margin: 20px auto;
    border-bottom: 2px solid #326838;
 }
@@ -310,6 +315,25 @@ padding-bottom: 40px;
 }
 
 /*main container affordability results ends*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -389,6 +413,15 @@ padding-bottom: 40px;
 }
 
 /* search for products ends*/
+
+
+
+
+
+
+
+
+
 
 
 
