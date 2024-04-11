@@ -1,3 +1,23 @@
+<?php 
+    session_start();
+    include("includes/connect.php");
+
+    $profileQuery = "SELECT * FROM brokers WHERE broker_id = {$_SESSION['user_id']};";
+    $profileResult = $mysqli->query($profileQuery);
+
+    $profileArray = null;
+
+    while ($obj = $profileResult->fetch_object()) {
+        $profileArray = array(
+            "first_name" => $obj->first_name,
+            "middle_name" => $obj->middle_name,
+            "surname" => $obj->surname,
+            "email_address" => $obj->email_address,
+            "date_of_birth" => $obj->dob
+        );
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +43,7 @@
     <li>
       <a href="#">
         <i class="user"></i>
-        Name
+        <?php echo $_SESSION['user_name']; ?>
         <i class="dropdown"></i>
       </a>
 
@@ -48,20 +68,20 @@
 <h4>My Profile</h4>
       <div class = "affordability-container">
         <div class="input-group">
-    <form action="#" class="form" method="post"></form>
+    <form action="profilechanges.php" class="form" method="post">
           <div class="input-box">
               <label>First Name</label>
-              <input type="text" name="firstname" placeholder="Enter your name">
+              <?php echo "<input type='text' value={$profileArray['first_name']} name='firstname' placeholder='Enter your first name' maxlength='30'>"; ?>
           </div>
 
           <div class="input-box">
               <label>Middle Name</label>
-              <input type="text" name="middlename" placeholder="Enter your name">
+              <?php echo "<input type='text' value={$profileArray['middle_name']} name='middlename' placeholder='Enter your middle name' maxlength='30'>"; ?>
           </div>
 
           <div class="input-box">
               <label>Surname</label>
-              <input type="text" name="surname" placeholder="Enter your name">
+              <?php echo "<input type='text' value={$profileArray['surname']} name='surname' placeholder='Enter your surname' maxlength='30'>"; ?>
           </div>
       </div>
 
@@ -79,7 +99,7 @@
 
       <div class="input-box">
           <label>Your Email</label>
-          <input type="email" name="email" placeholder="Enter your Email">
+          <?php echo "<input type='text' value={$profileArray['email_address']} name='email' placeholder='Enter your email'>"; ?>
       </div>
 
       <div class="input-box">
@@ -105,7 +125,7 @@
       <div class="column">
           <div class="input-box">
               <label>DOB</label>
-              <input type="date" name="dateofbirth" placeholder="Enter your DOB">
+              <?php echo "<input type='text' value={$profileArray['date_of_birth']} name='dateofbirth' placeholder='Enter your date of birth'>"; ?>
           </div>
 
           <div class="input-box">
@@ -114,7 +134,7 @@
           </div>
       </div>
 
-      <button name="changedetails">Change Details</button>
+      <button name="changebrokerdetails">Change Details</button>
     </form>
 
 
