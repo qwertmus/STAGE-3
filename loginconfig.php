@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: UserMainPage.php");
         exit();
     } elseif (validate_login($email, $password, $mysqli, true)) {
-        header("Location: broker-account.html");
+        header("Location: broker-account.php");
         exit();
     } else {
         echo "Invalid email or password.";
