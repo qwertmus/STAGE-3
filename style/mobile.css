@@ -70,8 +70,8 @@ header * {
 header .logo {
   height: inherit;
   margin-left: 20px;
-  display: flex;/* Added */
-  align-items: center;/* Added */
+  display: flex;
+  align-items: center;
 }
 /*need to make dropdown instead for mobile*/
 header .navbar {
@@ -133,11 +133,10 @@ header ul li a .dropdown{
 header ul li ul li a.logout {
   color: rgb(170, 44, 44);
 }
-/*need to make dropdown instead for mobile*/
 
 /*header ends*/
 
-/*background container for each page!!*/
+/*background container for each page*/
 .main-container{
   min-height: 100vh;
   width: 100%;
@@ -161,6 +160,37 @@ header ul li ul li a.logout {
  width: 80%;
  margin: auto;
 }
+
+
+ /* banner starts*/
+ .banner {
+  z-index: 0;
+  height: 30vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  background-size:cover;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('/images/bannerimg.jpeg');
+  border-bottom: 3px solid #326838;
+}
+.banner-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+.banner-text h1:hover{
+  color: #326838;
+  transition: color 0.5s ease-in-out;
+}
+/* banner ends*/
+
+
+
  /*signup+login form starts*/
  .main-container .user-form{
   padding: 50px 15px;
@@ -211,38 +241,6 @@ header ul li ul li a.logout {
   color:black;
  }
  /*signup+login form ends*/
- 
- 
-
-
-
- /* banner starts*/
-.banner {
-  z-index: 0;
-  height: 30vh;
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  position: relative;
-  background-size:cover;
-  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('/images/bannerimg.jpeg');
-  border-bottom: 3px solid #326838;
-}
-.banner-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-}
-.banner-text h1:hover{
-  color: #326838;
-  transition: color 0.5s ease-in-out;
-}
-/* banner ends*/
-
 
 /* homepage affordabilitycalculator starts*/
 .main-container .homeform{
