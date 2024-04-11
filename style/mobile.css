@@ -229,7 +229,7 @@ header ul li ul li a.logout {
    color:#fff;
  }
  .main-container .user-form p{
-   margin-top: 10px;
+  margin-top: 10px;
    font-size: 20px;
    color:#333;
  }
@@ -260,7 +260,8 @@ header ul li ul li a.logout {
 
 .main-container .homeform .affordability-container{
    width: 90%;
-   padding: 50px 15px;
+   padding-top: 5px;
+padding-bottom: 40px;
    margin: 20px auto;
    border-bottom: 2px solid #326838;
 }
@@ -315,9 +316,7 @@ header ul li ul li a.logout {
 .main-container .affordability-results-container h4{
   margin: 20px;
 }
-.main-container .affordability-results-container .results-container{
 
-}
 /*main container affordability results ends*/
 
 
