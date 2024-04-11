@@ -25,6 +25,7 @@ function validate_login($email, $password, $mysqli) {
         $row = $result->fetch_assoc();
         $full_name = $row['first_name'] . " " . $row['middle_name'] . " " . $row['surname'];
         $_SESSION['user_name'] = $full_name;
+        $_SESSION['user_id'] = $row['user_id'];
         return true;
     } else {
         return false;
