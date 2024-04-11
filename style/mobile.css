@@ -282,11 +282,7 @@ header ul li ul li a.logout {
   appearance: none;
   font-size: medium;
 }
-.affordability-results-container{
-  padding: 20px;
-  margin-top: 100px;
-  width: 100%;
-}
+
 .main-container .homeform .form-btn {
   width: 150px;
   padding: 12px;
@@ -306,9 +302,9 @@ header ul li ul li a.logout {
 
 /*main container affordability results starts*/
 .main-container .affordability-results-container{
-  margin: 100px auto; 
+  margin: 20px auto; 
   width: 400px;
-  padding: 50px;
+  padding: 30px;
   border: solid 2px #326838;
   border-radius: 20px;
   position: center;
