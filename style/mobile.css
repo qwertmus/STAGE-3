@@ -137,76 +137,6 @@ header ul li ul li a.logout {
 
 /*header ends*/
 
-/*footer starts*/
-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  background: #326838;
-  color: white;
-  width: 100%;
-  padding: 20px 0;
-  bottom: 0;
-  border-top: 1px solid #ccc;
-  transition: text-align 0.5s ease-in-out;
-}
-.footer-container{
-  display: flex;
-  flex-direction: column;
-  width: 95%;
-  padding-top: 15px;
-  align-items: center;
-  text-align: center;
-}
-
-.footer-logo{
-  display: flex;
-  margin: 10px;
-  color: white;
-}
-.contact{
-  margin: 10px 0;
-  font-style: normal; 
-  text-align: center;
-  line-height: 1.5;
-  font-size: larger;
-}
-
-.footer-logo a:link, .footer-logo a:visited {
-  color: white;
-}
-
-.contact a:link, .contact a:visited {
-  color: white;
-}
-
-.contact-address:hover, .contact-details a:hover {
-  color: #8c96cd;
-  transition: color 0.2s ease-in-out;
-}
-
-.footer-bottom{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: 0 auto 15px auto;
-}
-
-.footer-bottom:hover {
-  color: black; 
-  transition: color 0.2s ease-in-out;
-}
-
-.copyright{
-  margin-top: 15px;
-  margin-bottom: 10px;
-}
-/*footer ends*/
-
-
 /*background container for each page!!*/
 .main-container{
   min-height: 100vh;
@@ -220,8 +150,17 @@ footer {
   align-items: center;
   margin: auto;
   padding: 0px;
+
  }
- 
+/*main pages white container*/
+.main-container .inner-container{
+  min-height: 85vh;
+ box-shadow: 0 5px 10px rgba(0,0,0,.1);
+ background: #fff;
+ text-align: center;
+ width: 80%;
+ margin: auto;
+}
  /*signup+login form starts*/
  .main-container .user-form{
   padding: 50px 15px;
@@ -275,15 +214,7 @@ footer {
  
  
 
- /*main pages white container*/
-  .main-container .inner-container{
-    height: 100vh;
-   box-shadow: 0 5px 10px rgba(0,0,0,.1);
-   background: #fff;
-   text-align: center;
-   width: 80%;
-   margin: auto;
- }
+
 
  /* banner starts*/
 .banner {
@@ -352,6 +283,11 @@ footer {
   appearance: none;
   font-size: medium;
 }
+.affordability-results-container{
+  padding: 20px;
+  margin-top: 100px;
+  width: 100%;
+}
 .main-container .homeform .form-btn {
   width: 150px;
   padding: 12px;
@@ -369,10 +305,22 @@ footer {
 }
 /* homepage affordabilitycalculator ends*/
 
+/*main container affordability results starts*/
+.main-container .affordability-results-container{
+  margin: 50px auto; 
+  width: 80%;
+  padding: 20px;
+  border: solid 2px #326838;
+  border-radius: 20px;
+  position: center;
+}
+.main-container .affordability-results-container h4{
+  margin: 20px;
+}
+.main-container .affordability-results-container .results-container{
 
-
-
-
+}
+/*main container affordability results ends*/
 
 
 
@@ -452,3 +400,76 @@ footer {
 }
 
 /* search for products ends*/
+
+
+
+
+
+
+/*footer starts*/
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background: #326838;
+  color: white;
+  width: 100%;
+  padding: 50px;
+  bottom: 0;
+  border-top: 1px solid #ccc;
+  transition: text-align 0.5s ease-in-out;
+}
+.footer-container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  padding-top: 15px;
+  align-items: center;
+  text-align: center;
+}
+.footer-bottom{
+  margin-top: 20px;
+}
+
+.footer-logo{
+  display: flex;
+  margin: 10px;
+  color: white;
+}
+.contact{
+  margin: 10px 0;
+  font-style: normal; 
+  text-align: center;
+  line-height: 1.5;
+  font-size: larger;
+}
+
+.footer-logo a:link, .footer-logo a:visited {
+  color: white;
+}
+
+.contact a:link, .contact a:visited {
+  color: white;
+}
+
+.contact-address:hover, .contact-details a:hover {
+  color: #8c96cd;
+  transition: color 0.2s ease-in-out;
+}
+
+
+
+.footer-bottom:hover {
+  color: black; 
+  transition: color 0.2s ease-in-out;
+}
+
+.copyright{
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/*footer ends*/
+
