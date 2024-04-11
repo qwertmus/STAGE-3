@@ -153,7 +153,7 @@ header ul li ul li a.logout {
  }
 /*main pages white container*/
 .main-container .inner-container{
-  min-height: 85vh;
+  min-height: 100vh;
  box-shadow: 0 5px 10px rgba(0,0,0,.1);
  background: #fff;
  text-align: center;
@@ -423,7 +423,7 @@ footer {
   display: flex;
   flex-direction: column;
   width: 95%;
-  padding-top: 15px;
+
   align-items: center;
   text-align: center;
 }
