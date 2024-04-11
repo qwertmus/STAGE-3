@@ -11,15 +11,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
 *{
   font-family:'Poppins', sans-serif;
   margin:0;
@@ -136,6 +127,11 @@ header ul li ul li a.logout {
 
 /*header ends*/
 
+
+
+
+
+
 /*background container for each page*/
 .main-container{
   min-height: 100vh;
@@ -160,7 +156,6 @@ header ul li ul li a.logout {
  width: 80%;
  margin: auto;
 }
-
 
  /* banner starts*/
  .banner {
