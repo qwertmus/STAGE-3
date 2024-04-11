@@ -20,6 +20,7 @@
     <title>Rose Mortgage | Home</title>
     <link rel="stylesheet" href="style/mobile.css">
     <link rel="stylesheet" media="only screen and (min-width:720px)" href="style/desktop.css"/>
+    <script src="productDeleteConfirmation.js"></script>
 </head>
 
 <body>
@@ -133,7 +134,7 @@
         echo    "<th>Mininum Credit Score</th>";
         echo  "</tr>";
         while ($obj = $searchResult->fetch_object()) {
-          echo  "<tr id='{$obj->product_id}' style='cursor: pointer;'>";
+          echo  "<tr>";
           echo    "<td>{$obj->interest_rate}</td>";
           echo    "<td>{$obj->mortgage_term}</td>";
           echo    "<td>{$obj->lender}</td>";
@@ -144,7 +145,8 @@
           echo    "<td>{$obj->monthly_rate}</td>";
           echo    "<td>{$obj->min_age}</td>";
           echo    "<td>{$obj->max_age}</td>";
-          echo    "<td>{$obj->min_credit_score}</td>"; 
+          echo    "<td>{$obj->min_credit_score}</td>";
+          echo    "<td id='{$obj->product_id}' style='cursor: pointer; color: #CC0000;' onclick='ConfirmDeletion(this);'>Delete</td>";
           echo  "</tr>";
         }
         echo "</table>";
@@ -154,4 +156,12 @@
     }
   ?>
 </div>
+
+<form id="confirmation" action="deleteProduct.php" method="post" hidden>
+  <h3>Are you sure?</h3>
+  <input type="number" name="product_id" hidden>
+
+  <button name="confirm">Yes</button>
+  <button>No</button>
+</form>
 </div>
