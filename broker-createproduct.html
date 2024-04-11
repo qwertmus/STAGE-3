@@ -54,59 +54,70 @@
             <h5>Welcome To</h5>
             <h1>Rose Mortgage</h1>
         </div>
-     </div>
+     </div> 
 
-      <h4>Mortgage Products</h4>
-      <div class = "affordability-container">
-        <div class="input-group">
-          <label for="interestrate">Interest Rate :</label>
-          <div class="prefix">%<input class="control" type="text" name="interestrate" required placeholder="Interest Rate"></div> 
+     <form class="homeform"  action="createproductconfig.php" method="post" onsubmit="calculateAffordability(event)">
+        <h4>Create Product</h4>
+        <div class="affordability-container">
+          <div class="input-group">
+            <label for="interest">Interest rate:</label>
+            <div class="prefix">%<input class="control" type="text" id="interest" name="interestrate" required placeholder="Interest"></div>
+          </div>
+          <div class="input-group">
+            <label for="mortgageterm">Mortgage Term:</label>
+            <select class="control" id="mortgageterm" name="mortgageterm" required>
+              <option value="">Select Mortgage Term</option>
+              <option value="2">2 years</option>
+              <option value="5">5 years</option>
+              <option value="10">10 years</option>
+              <option value="25">25 years</option>
+              <option value="40">40 years</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="deposit">Lender:</label>
+            <div class="prefix"><input class="control" type="text" id="deposit" name="lender" required placeholder="Lender"></div>
+          </div>
+          <div class="input-group">
+            <label for="mortgageterm">Employment Status:</label>
+            <select class="control" id="mortgageterm" name="employmentstatuseligibility" required>
+              <option value="">Select Status</option>
+              <option value="Full-Time">Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
+              <option value="Self-Employed">Self-Employed</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="deposit">LTV:</label>
+            <div class="prefix">%<input class="control" type="text" id="deposit" name="ltv" required placeholder="LTV"></div>
+          </div>
+          <div class="input-group">
+            <label for="deposit">Product type:</label>
+            <div class="prefix">£<input class="control" type="text" id="deposit" name="type" required placeholder="Product type"></div>
+          </div>
+          <div class="input-group">
+            <label for="deposit">Product Fee</label>
+            <div class="prefix">£<input class="control" type="text" id="deposit" name="fee" required placeholder="Product Fee"></div>
+          </div>
+          <div class="input-group">
+            <label for="deposit">Monthly Rate</label>
+            <div class="prefix">£<input class="control" type="text" id="deposit" name="monthlyrate" required placeholder="Monthly Rate"></div>
+          </div>
+          <div class="input-group">
+            <label for="deposit">Minimum creditscore</label>
+            <div class="prefix"><input class="control" type="text" id="deposit" name="creditscore" required placeholder="Enter minimum"></div>
+          </div>
+          <div class="input-group">
+            <label for="deposit">Minimum Age</label>
+            <div class="prefix">£<input class="control" type="text" id="deposit" name="minage" required placeholder="Enter minimum"></div>
+          </div>
+          <div class="input-group">
+            <label for="deposit">Maximum Age</label>
+            <div class="prefix">£<input class="control" type="text" id="deposit" name="maxage" required placeholder="Enter maximum"></div>
+          </div>
         </div>
-        <div class="input-group">
-          <label for="mortgageterm">Mortgage Term:</label>
-          <div class="prefix"><input class="control" type="text" name="mortgageterm" required placeholder="Mortgage Term"></div>
-        </div>
-        <div class="input-group">
-          <label for="employmentstatuseligibility">Employment Status Eligibility:</label>
-          <select class="control" name="employmentstatuseligibility" required>
-            <option value="">Select Employment Status</option>
-            <option value="Full Time">Full Time</option>
-            <option value="Part-Time">Part-Time</option>
-            <option value="Self Employed">Self Employed</option>
-           </select>
-           </div>
-            <div class="input-group">
-              <label for="ltv">LTV
-                (Loan To Value) :</label>
-              <div class="prefix">%<input class="control" type="text" name="ltv" required placeholder="LTV"></div> 
-            </div>
-            <div class="input-group">
-                <label for="type">Type:</label>
-                <select class="control" name="type" required>
-                  <option value="">Select Type</option>
-                  <option value="Tracker">Tracker</option>
-                  <option value="Fixed-Rate">Fixed-Rate</option>
-                 </select>
-                 </div>
-            <div class="input-group">
-                    <label for="fee">Fee (Optional) :</label>
-                    <div class="prefix"><input class="control" type="text" name="fee" required placeholder="Fee"></div> 
-                  </div>
-                  <div class="input-group">
-                    <label for="monthlyrate">Monthly Rate :</label>
-                    <div class="prefix"><input class="control" type="text" name="monthlyrate" required placeholder="Monthly Rate"></div> 
-                  </div>
-                  <div class="input-group">
-                    <label for="creditscore">Credit Score :</label>
-                    <div class="prefix"><input class="control" type="text" name="creditscore" required placeholder="Credit Score"></div> 
-                  </div>
-                  <div class="input-group">
-                    <label for="age">Age :</label>
-                    <div class="prefix"><input class="control" type="text" name="age" required placeholder="Age"></div> 
-                  </div>
-       </div>
-      <input type="submit" name="submit" value="Create" class="form-btn">
-   </form>
+        <input type="submit" name="submit" value="Calculate" class="form-btn">
+      </form>
 
 </div>
 </div>

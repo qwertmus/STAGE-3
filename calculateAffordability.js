@@ -15,13 +15,13 @@ function calculateAffordability(event) {
   }
   
   function calculateMonthlyPayment(interestRate, propertyValue, deposit, mortgageTerm) {
-    // Convert annual interest rate to monthly and adjust for percentage
+    // Convert annual interest rate to monthly 
     const monthlyInterestRate = (interestRate / 100) / 12;
   
-    // Calculate the principal amount (loan amount)
+    // Calculate the loan amount
     const principal = propertyValue - deposit;
   
-    // Calculate the number of payments (total months)
+    // Calculate the number of payments
     const numberOfPayments = mortgageTerm * 12;
   
     // Calculate the monthly payment using the formula
