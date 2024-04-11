@@ -6,28 +6,33 @@ session_start();
 
 if (isset($_SESSION['purpose']))//This should fire true if the user entered the fields and was redirected here successfully.
 {
-    $purpose = $_SESSION['purpose'];
-    $price = $_SESSION['price'];
-    $deposit = $_SESSION['deposit'];
+    $purpose = validate($_SESSION['purpose']);
+    $price = floatval($_SESSION['price']);
+    $deposit = intval($_SESSION['deposit']);
     $term = $_SESSION['term'];
 
-    //We'd use the variables above to do a proper database retrieval. I think anyway?
-    $findall = "SELECT * FROM quotes";
-    $result = mysqli_query($mysqli, $findall);
+    /*$depositpercent = number_format($deposit / $price, 2);*/
+    $depositpercent = ($deposit / $price * 100);
+    $loantovalue = 100 - $depositpercent;
 
-    /*
-    echo "Saved Purpose is: $purpose";
-    echo "Saved Price is: $price";
-    echo "Saved Depisit is: $deposit";
-    echo "Saved Term is: $term";
-    */
+    $findproducts = "SELECT * FROM products WHERE product_type = '$purpose' AND ltv <= '$loantovalue'";
+    $result = mysqli_query($mysqli, $findproducts);
 }
-else
+else //The user has entered this page for the first time, without any values being entered.
 {
     $purpose = "Not Set";
     $price = "0.00";
     $deposit = "0.00";
     $term = "0";
+    $depositpercent = 0;
+    $loantovalue = 0;
+}
+
+function validate($input)
+{
+    $input = stripslashes($input);
+    $input = htmlspecialchars($input);
+    return $input;
 }
 
 ?>
@@ -95,9 +100,9 @@ else
                                 <td class="productsearch-td">
                                     <select class="productsearch-field" name="purpose" required>
                                         <option value="">Select Mortgage Purpose</option>
-                                        <option value="1">FTB</option>
-                                        <option value="2">Remortgage</option>
-                                        <option value="3">Moving House</option>
+                                        <option value="FTB">FTB</option>
+                                        <option value="Remortgage">Remortgage</option>
+                                        <option value="Moving House">Moving House</option>
                                     </select>
                                 </td>
                                 <td class="productsearch-td">
@@ -110,10 +115,10 @@ else
                                     <input type="text" class="productsearch-field" name="term" placeholder="Term Length"></input>
                                 </td>
                                 <td class="productsearch-td">
-                                    <span>0%</span>
+                                    <span><?php echo $depositpercent?></span>
                                 </td>
                                 <td class="productsearch-td">
-                                    <span>0%</span>
+                                    <span><?php echo $loantovalue?></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -127,18 +132,38 @@ else
                     while ($entry = mysqli_fetch_assoc($result))
                     {
                         ?>
-                        <div class="productsearch-result">  
+                        <div class="productsearch-result">
+                        <p class="productsearch-title"><?php echo $entry['product_type']?></p>
+                        <input type="checkbox"></input>
+                            <div>
+                                <p>Monthly Fee:</p>
+                                <?php 
+                                
+                                ($price-$deposit) * (($entry['interest_rate'] / 100) / 12) * (pow(1 + (($entry['interest_rate'] / 100) / 12), ($entry['mortgage_term'] * 12))) / (pow(1 + (($entry['interest_rate'] / 100) / 12), ($entry['mortgage_term'] * 12)) - 1)
+                                
+                                ?>                               
+                            </div>
                             <div>
                                 <p>Interest Rate:</p>
                                 <p><?php echo $entry['interest_rate']?></p>
                             </div>
                             <div>
-                                <p>Monthly Rate:</p>
-                                <p><?php echo $entry['monthly_rate']?></p>
+                                <p>Product Fee:</p>
+                                <p>
+                                <? if(!is_null($entry['product_fee']))
+                                {
+                                    echo $entry['product_fee'];
+                                }
+                                else
+                                {
+                                    echo 'N/A';
+                                }
+                                ?>
+                                </p>
                             </div>
                             <div>
-                                <p>Product Fee:</p>
-                                <p><?php echo $entry['product_fee']?></p>
+                                <p>Mortage Term:</p>
+                                <p><?php echo $entry['mortgage_term']?> years</p>
                             </div>
                         </div>
                         <?php
