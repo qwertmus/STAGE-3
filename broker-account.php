@@ -85,53 +85,14 @@
           </div>
       </div>
 
-      <div class="column">
-          <div class="input-box">
-              <label>Contact Number</label>
-              <input type="number" name="contactnumber" placeholder="Enter your number">
-          </div>
-
-          <div class="input-box">
-              <label>Confirm Number</label>
-              <input type="number" name="confirmnumber" placeholder="Enter your number again">
-          </div>
-      </div>
-
       <div class="input-box">
           <label>Your Email</label>
           <?php echo "<input type='text' value={$profileArray['email_address']} name='email' placeholder='Enter your email'>"; ?>
       </div>
 
       <div class="input-box">
-          <label>postcode</label>
-          <input type="text" name="postcode" placeholder="Enter your postcode">
-      </div>
-
-      <div class="input-box">
-          <label>Income</label>
-          <input type="number" name="income" placeholder="Enter your annual income">
-          
-          <div class="select-box Income">
-
-              <select>
-                  <option hidden>Employment type</option>
-                  <option>Full Time</option>
-                  <option>Part Time</option>
-                  <option>Self  employed</option>
-              </select>
-          </div>
-      </div>
-
-      <div class="column">
-          <div class="input-box">
-              <label>DOB</label>
-              <?php echo "<input type='text' value={$profileArray['date_of_birth']} name='dateofbirth' placeholder='Enter your date of birth'>"; ?>
-          </div>
-
-          <div class="input-box">
-              <label>Credit Score</label>
-              <input type="text" name="creditscore" placeholder="Enter your Credit Score">
-          </div>
+          <label>DOB</label>
+          <?php echo "<input type='text' value={$profileArray['date_of_birth']} name='dateofbirth' placeholder='Enter your date of birth'>"; ?>
       </div>
 
       <button name="changebrokerdetails">Change Details</button>
