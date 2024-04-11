@@ -71,7 +71,7 @@
 <form class="homeform" action="broker-manageproduct.php" method="post">
 <h4>Mortgage Products</h4>
 <div class="input-group">
-  <label for="sortby">Sort by:</label>
+  <label for="sortby">Sort by interest rate:</label>
     <select class="control" name="type">
       <option value="None">None</option>
       <option value="High-Low">High-Low</option>
