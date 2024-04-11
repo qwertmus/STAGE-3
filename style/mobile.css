@@ -301,9 +301,9 @@ padding-bottom: 40px;
 
 /*main container affordability results starts*/
 .main-container .affordability-results-container{
-  margin: 30px auto; 
+  margin: 100px auto; 
   width: 400px;
-  padding: 20px;
+  padding: 50px;
   border: solid 2px #326838;
   border-radius: 20px;
   position: center;
