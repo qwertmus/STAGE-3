@@ -11,14 +11,14 @@ if (isset($_SESSION['purpose']))//This should fire true if the user entered the 
     $deposit = intval($_SESSION['deposit']);
     $term = $_SESSION['term'];
 
-    /*$depositpercent = number_format($deposit / $price, 2);*/
     $depositpercent = ($deposit / $price * 100);
     $loantovalue = 100 - $depositpercent;
 
-    $findproducts = "SELECT * FROM products WHERE product_type = '$purpose' AND ltv <= '$loantovalue'";
+    $findproducts = "SELECT * FROM products WHERE ltv >= '$loantovalue'";
     $result = mysqli_query($mysqli, $findproducts);
-}
-else //The user has entered this page for the first time, without any values being entered.
+
+    $i = 0;
+} else //The user has entered this page for the first time, without any values being entered.
 {
     $purpose = "Not Set";
     $price = "0.00";
@@ -26,6 +26,11 @@ else //The user has entered this page for the first time, without any values bei
     $term = "0";
     $depositpercent = 0;
     $loantovalue = 0;
+
+    $falsesearch = "SELECT * FROM products WHERE product_id = -1";
+    $result = mysqli_query($mysqli, $falsesearch);
+
+    $i = 0;
 }
 
 function validate($input)
@@ -46,6 +51,7 @@ function validate($input)
     <title>Rose Mortgage | Home</title>
     <link rel="stylesheet" href="style/mobile.css">
     <link rel="stylesheet" media="only screen and (min-width:720px)" href="style/desktop.css" />
+    <script src="selectproduct.js" defer></script>
 </head>
 
 <body>
@@ -69,7 +75,6 @@ function validate($input)
                     <li><a href="#">My Profile</a></li>
                     <li><a href="#" class="logout">Logout</a></li>
                 </ul>
-
             </li>
         </ul>
         <!--menu icon -->
@@ -106,19 +111,22 @@ function validate($input)
                                     </select>
                                 </td>
                                 <td class="productsearch-td">
-                                    <input type="text" class="productsearch-field" name="price" placeholder="Value"></input>
+                                    <input type="text" class="productsearch-field" name="price"
+                                        placeholder="Value"></input>
                                 </td>
                                 <td class="productsearch-td">
-                                    <input type="text" class="productsearch-field" name="deposit" placeholder="Deposit"></input>
+                                    <input type="text" class="productsearch-field" name="deposit"
+                                        placeholder="Deposit"></input>
                                 </td>
                                 <td class="productsearch-td">
-                                    <input type="text" class="productsearch-field" name="term" placeholder="Term Length"></input>
+                                    <input type="text" class="productsearch-field" name="term"
+                                        placeholder="Term Length"></input>
                                 </td>
                                 <td class="productsearch-td">
-                                    <span><?php echo $depositpercent?></span>
+                                    <span><?php echo $depositpercent ?></span>
                                 </td>
                                 <td class="productsearch-td">
-                                    <span><?php echo $loantovalue?></span>
+                                    <span><?php echo $loantovalue ?></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -129,48 +137,66 @@ function validate($input)
             <div class="productsearch-division">
                 <div class="productsearch-resultarea">
                     <?php
-                    while ($entry = mysqli_fetch_assoc($result))
+                    while ($entry = mysqli_fetch_assoc($result)) 
                     {
+                        $i = $i + 1;
                         ?>
-                        <div class="productsearch-result">
-                        <p class="productsearch-title"><?php echo $entry['product_type']?></p>
-                        <input type="checkbox"></input>
-                            <div>
-                                <p>Monthly Fee:</p>
-                                <?php 
-                                
-                                ($price-$deposit) * (($entry['interest_rate'] / 100) / 12) * (pow(1 + (($entry['interest_rate'] / 100) / 12), ($entry['mortgage_term'] * 12))) / (pow(1 + (($entry['interest_rate'] / 100) / 12), ($entry['mortgage_term'] * 12)) - 1)
-                                
-                                ?>                               
+                        <a class="productsearch-span" onclick="handleSelected(this)">
+                            <div class="productsearch-result">
+                                <div>
+                                    <?php echo 'Quote: ';
+                                    echo $i; ?>
+                                </div>
+                                <p class="productsearch-title"><?php echo $entry['product_type'] ?></p>
+                                <input type="checkbox"></input>
+                                <div>
+                                    <p>Monthly Payment:</p>
+                                    <?php
+                                    $r = (($entry['interest_rate'] / 100) / 12);
+                                    $p = $price - $deposit;
+                                    $n = $entry['mortgage_term'] * 12;
+                                    $monthly = ($p) * ($r * (pow(1 + $r, $n))) / (pow(1 + $r, $n) - 1);
+                                    $monthly = number_format($monthly, 2);
+                                    echo '£';
+                                    echo $monthly;
+                                    ?>
+                                </div>
+                                <div>
+                                    <p>Initial Interest Rate:</p>
+                                    <p><?php echo $entry['interest_rate'];
+                                    echo '%'; ?></p>
+                                </div>
+                                <div>
+                                    <p>Product Fee:</p>
+                                    <p>
+                                        <?php
+                                        if (!is_null($entry['product_fee']))
+                                            echo $entry['product_fee'];
+                                        else
+                                            echo 'N/A';
+                                        ?>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p>Total Payable:</p>
+                                    <p>
+                                        <?php
+                                        $total = (($r * ($price - $deposit)) / (1 - pow(1 + $r, -$n))) * $n;
+                                        $total = $total + $entry['product_fee'];
+                                        $total = number_format($total, 2);
+                                        echo '£';
+                                        echo $total;
+                                        ?>
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <p>Interest Rate:</p>
-                                <p><?php echo $entry['interest_rate']?></p>
-                            </div>
-                            <div>
-                                <p>Product Fee:</p>
-                                <p>
-                                <? if(!is_null($entry['product_fee']))
-                                {
-                                    echo $entry['product_fee'];
-                                }
-                                else
-                                {
-                                    echo 'N/A';
-                                }
-                                ?>
-                                </p>
-                            </div>
-                            <div>
-                                <p>Mortage Term:</p>
-                                <p><?php echo $entry['mortgage_term']?> years</p>
-                            </div>
-                        </div>
+                        </a>
                         <?php
                     }
                     ?>
                 </div>
             </div>
+            <button class="productsearch-button">Save Quote</button>
         </div>
     </div>
     </div>
