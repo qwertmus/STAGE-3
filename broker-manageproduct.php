@@ -120,41 +120,41 @@
         $searchResult = $mysqli->query($searchQuery);
 
         echo "<table>";
-        echo  "<tr>";
-        echo    "<th>Interest rate</th>";
-        echo    "<th>Mortgage term</th>";
-        echo    "<th>Lender</th>";
-        echo    "<th>Employment Status</th>";
-        echo    "<th>ITV</th>";
-        echo    "<th>Product Type</th>";
-        echo    "<th>Product Fee</th>";
-        echo    "<th>Monthly</th>";
-        echo    "<th>Mininum Age</th>";
-        echo    "<th>Maximum Age</th>";
-        echo    "<th>Mininum Credit Score</th>";
-        echo  "</tr>";
+        echo "<tr>";
+        echo "<th>Interest rate</th>";
+        echo "<th>Mortgage term</th>";
+        echo "<th>Lender</th>";
+        echo "<th>Employment Status</th>";
+        echo "<th>LTV</th>";
+        echo "<th>Product Type</th>";
+        echo "<th>Product Fee</th>";
+        echo "<th>Initial Period</th>"; // Changed column header
+        echo "<th>Mininum Age</th>";
+        echo "<th>Maximum Age</th>";
+        echo "<th>Mininum Credit Score</th>";
+        echo "</tr>";
         while ($obj = $searchResult->fetch_object()) {
-          echo  "<tr>";
-          echo    "<td>{$obj->interest_rate}</td>";
-          echo    "<td>{$obj->mortgage_term}</td>";
-          echo    "<td>{$obj->lender}</td>";
-          echo    "<td>{$obj->employment_status}</td>";
-          echo    "<td>{$obj->itv}</td>";
-          echo    "<td>{$obj->product_type}</td>";
-          echo    "<td>{$obj->product_fee}</td>";
-          echo    "<td>{$obj->monthly_rate}</td>";
-          echo    "<td>{$obj->min_age}</td>";
-          echo    "<td>{$obj->max_age}</td>";
-          echo    "<td>{$obj->min_credit_score}</td>";
-          echo    "<td id='{$obj->product_id}' style='cursor: pointer; color: #CC0000;' onclick='ConfirmDeletion(this);'>Delete</td>";
-          echo  "</tr>";
+            echo "<tr>";
+            echo "<td>{$obj->interest_rate}</td>";
+            echo "<td>{$obj->mortgage_term}</td>";
+            echo "<td>{$obj->lender}</td>";
+            echo "<td>{$obj->employment_status}</td>";
+            echo "<td>{$obj->ltv}</td>";
+            echo "<td>{$obj->product_type}</td>";
+            echo "<td>{$obj->product_fee}</td>";
+            echo "<td>{$obj->initial_period}</td>"; // Changed column data
+            echo "<td>{$obj->min_age}</td>";
+            echo "<td>{$obj->max_age}</td>";
+            echo "<td>{$obj->min_credit_score}</td>";
+            echo "<td id='{$obj->product_id}' style='cursor: pointer; color: #CC0000;' onclick='ConfirmDeletion(this);'>Delete</td>";
+            echo "</tr>";
         }
         echo "</table>";
-      } else {
+        } else {
         echo "<p>No results found</p>";
-      }
-    }
-  ?>
+        }
+        }
+        ?>
 </div>
 
 <form id="confirmation" action="deleteProduct.php" method="post" hidden>

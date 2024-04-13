@@ -11,7 +11,7 @@
         $itv = $_POST['ltv'];
         $product_type = $_POST['type'];
         $product_fee = $_POST['fee'];
-        $monthly_rate = $_POST['monthlyrate'];
+        $initial_period = $_POST['monthlyrate'];
         $min_credit_score = $_POST['creditscore'];
         $min_age = $_POST['minage'];
         $max_age = $_POST['maxage'];
@@ -22,10 +22,10 @@
                 $new_product_id = $obj->product_id + 1;
             }
 
-            $create_product_query = "INSERT INTO products VALUES('{$new_product_id}', '{$interest_rate}', '{$mortgage_term}', '{$lender}', '{$employement_status}', '{$itv}', '{$product_type}', '{$product_fee}', '{$monthly_rate}', '{$min_age}', '{$max_age}', '{$min_credit_score}');";
+            $create_product_query = "INSERT INTO products VALUES('{$new_product_id}', '{$interest_rate}', '{$mortgage_term}', '{$lender}', '{$employement_status}', '{$itv}', '{$product_type}', '{$initial_period}','{$product_fee}',  '{$min_age}', '{$max_age}', '{$min_credit_score}');";
             $create_product_result = $mysqli->query($create_product_query);
             if ($create_product_result === true) {
-                header("Location: broker-manageproduct.html");
+                header("Location: broker-manageproduct.php");
                 exit();
             }
 
