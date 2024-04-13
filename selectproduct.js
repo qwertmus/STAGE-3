@@ -1,6 +1,6 @@
 var all = document.getElementsByClassName("productsearch-result");
 
-function handleSelected(e)
+function selectEntry(e)
 {
     for (let i = 0; i < all.length; i++)
     {
@@ -9,5 +9,5 @@ function handleSelected(e)
     
     var c = (e).querySelector('.productsearch-result');
     c.focus();
-    c.className = 'productsearch-result-clicked';
+    //c.className = 'productsearch-result-clicked';
 }

@@ -335,7 +335,7 @@ header ul li ul li a.logout {
 
 
 /* search for products starts*/
-.main-container .productsearch-container
+.productsearch-container
 {
   background: #fff;
   display: flex;
@@ -344,13 +344,13 @@ header ul li ul li a.logout {
   width: 1200px;
 }
 
-.main-container .productsearch-container h4
+.productsearch-container h4
 {
   font-size: 20px;
   padding-bottom: 1vh;
 }
 
-.main-container .productsearch-container .productsearch-table
+.productsearch-table
 {
   min-width: 100%;
   margin: 1vh 0px;
@@ -359,13 +359,13 @@ header ul li ul li a.logout {
   border-bottom: 2px solid #326838
 }
 
-.main-container .productsearch-container .productsearch-division
+.productsearch-division
 {
   margin: 1vh 0px;
   padding: 1vh 0px;
 }
 
-.main-container .productsearch-container .productsearch-division .productsearch-resultarea
+.productsearch-resultarea
 {
   display: flex;
   flex-direction: column;
@@ -373,7 +373,7 @@ header ul li ul li a.logout {
 }
 
 
-.main-container .productsearch-container .productsearch-division .productsearch-resultarea .productsearch-span
+.productsearch-span
 {
   display: block;
   height: 100%;
@@ -381,7 +381,7 @@ header ul li ul li a.logout {
   text-decoration: none;
 }
 
-.main-container .productsearch-container .productsearch-division .productsearch-resultarea .productsearch-span .productsearch-result
+.productsearch-result
 {
   padding:20px;
   width: 95%;
@@ -391,7 +391,7 @@ header ul li ul li a.logout {
   background-color: white;
 }
 
-.main-container .productsearch-container .productsearch-division .productsearch-resultarea .productsearch-span .productsearch-result-clicked
+.productsearch-result-clicked
 {
   padding:20px;
   width: 95%;
@@ -401,22 +401,25 @@ header ul li ul li a.logout {
   background-color: #326838;
 }
 
-.main-container .productsearch-container .productsearch-division .productsearch-resultarea .productsearch-result .productsearch-title
+.productsearch-title
 {
   font-weight: bold;
+  border: none;
+  outline: none;
+  text-align: center;
 }
 
-.main-container .productsearch-container .productsearch-division .productsearch-table .productsearch-header
+.productsearch-header
 {
   text-align: left;
 }
 
-.main-container .productsearch-container .productsearch-division .productsearch-table .productsearch-td
+.productsearch-td
 {
   padding-top: 10px;
 }
 
-.main-container .productsearch-container .productsearch-division .productsearch-table .productsearch-field
+.productsearch-field
 {
   color: black;
   border: 1px solid black;
@@ -431,6 +434,12 @@ header ul li ul li a.logout {
   border: none;
   border-radius: 8px;
   padding: 10px;
+}
+
+.productsearch-text
+{
+  border: none;
+  outline: none;
 }
 
 /* search for products ends*/
