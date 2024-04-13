@@ -68,7 +68,9 @@ session_start();
               
           <div class="UserMainPagefirst">      
               <h4>Receive mortgage quote</h4>  
+              <a href = productsearch.php>
               <img src="images\calculate-mainUserpage.jpg" alt="calculate quote image" height=250px width=800px>
+              </a>
           </div>        
           <div class="UserMainPagesecond">
               <h4>View mortgage quote history</h4>     
