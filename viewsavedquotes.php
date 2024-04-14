@@ -48,7 +48,7 @@ else //User is NOT already logged in; page is inaccessible.
 
                 <ul>
                     <li><a href="profile.php">My Profile</a></li>
-                    <li><a href="#" class="logout">Logout</a></li>
+                    <li><a href="login.php" class="logout">Logout</a></li>
                 </ul>
             </li>
         </ul>

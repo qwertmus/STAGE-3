@@ -42,7 +42,7 @@ session_start();
 
       <ul>
         <li><a href="profile.php">My Profile</a></li>
-        <li><a href="#" class="logout">Logout</a></li>
+        <li><a href="login.php" class="logout">Logout</a></li>
       </ul>
 
     </li>
@@ -73,8 +73,10 @@ session_start();
               </a>
           </div>        
           <div class="UserMainPagesecond">
-              <h4>View mortgage quote history</h4>     
+              <h4>View mortgage quote history</h4>  
+              <a href = viewsavedquotes.php>   
               <img src="images\row-of-books.webp" class="ContainerMainUser" alt="books on shelf, view quotes" height=250px width=800px>
+              </a>
           </div>   
         <h3></h3>
      
