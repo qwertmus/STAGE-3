@@ -294,7 +294,7 @@ function validate($input)
                     {
                         $i = $i + 1;
                         ?>
-                        <a class="productsearch-span" onclick="selectEntry(this)">
+                        <a class="productsearch-span">
                         <form method="POST" action="saveasquote.php">
                             <div class="productsearch-result">
                                 <div class ="productsearch-result-column">
