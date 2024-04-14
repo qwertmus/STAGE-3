@@ -16,6 +16,39 @@ else //User is NOT already logged in; page is inaccessible.
     header("Location: home.html");
 }
 
+$quote1Info = null;
+$quote2Info = null;
+
+if (isset($_POST['compare'])) {
+    $quote1Query = "SELECT * FROM quotes WHERE quote_id = {$_POST['quote1']};";
+    $quote1Result = $mysqli->query($quote1Query);
+
+    while ($obj = $quote1Result->fetch_object())
+    {
+        $quote1Info = array(
+            "mortgage_type" => $obj->mortgage_type,
+            "monthly_payment" => $obj->monthly_payment,
+            "interest_rate" => $obj->interest_rate,
+            "product_fee" => $obj->product_fee,
+            "total_pay" => $obj->total_payable
+        );
+    }
+
+    $quote2Query = "SELECT * FROM quotes WHERE quote_id = {$_POST['quote2']};";
+    $quote2Result = $mysqli->query($quote2Query);
+
+    while ($obj = $quote2Result->fetch_object())
+    {
+        $quote2Info = array(
+            "mortgage_type" => $obj->mortgage_type,
+            "monthly_payment" => $obj->monthly_payment,
+            "interest_rate" => $obj->interest_rate,
+            "product_fee" => $obj->product_fee,
+            "total_pay" => $obj->total_payable
+        );
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +81,7 @@ else //User is NOT already logged in; page is inaccessible.
 
                 <ul>
                     <li><a href="profile.php">My Profile</a></li>
-                    <li><a href="login.php" class="logout">Logout</a></li>
+                    <li><a href="#" class="logout">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -88,7 +121,7 @@ else //User is NOT already logged in; page is inaccessible.
                                     <p><?php echo $entry['monthly_payment']; ?></p>
                                 </div>
                                 <div class ="productsearch-result-column">
-                                    <p>Initial Interest Rate (%):</p>
+                                    <p>Initial Interest Rate (%):</p>                                    <p><?php echo $entry['monthly_payment']; ?></p>
                                     <p><?php echo $entry['interest_rate']; ?></p>
                                 </div>
                                 <div class ="productsearch-result-column">
@@ -110,6 +143,97 @@ else //User is NOT already logged in; page is inaccessible.
                     ?>
                 </div>
             </div>
+
+            <form method="POST" action="viewsavedquotes.php">
+                <h4>Compare mortgage quotes</h4>
+                <p>You can also compare the quotes on this page.</p>
+
+                <div>
+                    <label for="compare1">Mortgage Quote: </label>
+                    <select name="quote1" id="compare1">
+                        <!--
+                        <option value="1">Quote 1</option>
+                        <option value="2">Quote 2</option>
+                        <option value="3">Quote 3</option>
+                        <option value="4">Quote 4</option>
+                        -->
+
+                        <?php
+                            #I couldn't make finding quotes work the same way as the person who made this page did sadly, so i had to do this
+                            $quoteResult = $mysqli->query($findquotes);
+
+                            while ($obj = $quoteResult->fetch_object()) 
+                            { 
+                                echo "<option value='{$obj->quote_id}'>Quote ID: {$obj->quote_id}</option>";
+                            }
+                        ?>
+                    </select>
+
+                    <br>
+
+                    <?php 
+                        echo "<p>Mortgage type: ";
+                        if ($quote1Info != null) { echo $quote1Info['mortgage_type']; }
+                        echo "</p>";
+
+                        echo "<p>Monthly payment: ";
+                        if ($quote1Info != null) { echo $quote1Info['monthly_payment']; }
+                        echo "</p>";
+
+                        echo "<p>Initial interest rate: ";
+                        if ($quote1Info != null) { echo $quote1Info['interest_rate']; }
+                        echo "</p>";
+
+                        echo "<p>Product type: ";
+                        if ($quote1Info != null) { echo $quote1Info['product_fee']; }
+                        echo "</p>";
+
+                        echo "<p>Total payable: ";
+                        if ($quote1Info != null) { echo $quote1Info['total_pay']; }
+                        echo "</p>";
+                    ?>
+                </div>
+
+                <div>
+                    <label for="compare2">Mortgage Quote: </label>
+                    <select name="quote2" id="compare2">
+                        <?php
+                            $quoteResult = $mysqli->query($findquotes);
+
+                            while ($obj = $quoteResult->fetch_object()) 
+                            { 
+                                echo "<option value='{$obj->quote_id}'>Quote ID: {$obj->quote_id}</option>";
+                            }
+                        ?>
+                    </select>
+
+                    <br>
+
+                    <?php 
+                        echo "<p>Mortgage type: ";
+                        if ($quote2Info != null) { echo $quote2Info['mortgage_type']; }
+                        echo "</p>";
+
+                        echo "<p>Monthly payment: ";
+                        if ($quote2Info != null) { echo $quote2Info['monthly_payment']; }
+                        echo "</p>";
+
+                        echo "<p>Initial interest rate: ";
+                        if ($quote2Info != null) { echo $quote2Info['interest_rate']; }
+                        echo "</p>";
+
+                        echo "<p>Product type: ";
+                        if ($quote2Info != null) { echo $quote2Info['product_fee']; }
+                        echo "</p>";
+
+                        echo "<p>Total payable: ";
+                        if ($quote2Info != null) { echo $quote2Info['total_pay']; }
+                        echo "</p>";
+                    ?>
+                </div>
+
+                <button name="compare">Compare</button>
+            </form>
         </div>
     </div>
     </div>
