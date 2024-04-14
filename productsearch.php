@@ -224,15 +224,15 @@ function validate($input)
                         <tbody>
                             <tr>
                                 <td class="productsearch-td">
-                                    <input type="text" class="productsearch-field" name="price"
+                                    <input type="number" min="0" class="productsearch-field" name="price"
                                         placeholder="Value"></input>
                                 </td>
                                 <td class="productsearch-td">
-                                    <input type="text" class="productsearch-field" name="deposit"
+                                    <input type="number" min="0" class="productsearch-field" name="deposit"
                                         placeholder="Deposit"></input>
                                 </td>
                                 <td class="productsearch-td">
-                                    <input type="text" class="productsearch-field" name="term"
+                                    <input type="number" min="0" class="productsearch-field" name="term"
                                         placeholder="Term Length"></input>
                                 </td>
                                 <td class="productsearch-td">

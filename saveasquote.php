@@ -20,7 +20,10 @@ if(isset($_POST['savequote']))
     mysqli_query($mysqli, $insertquote);
     mysqli_close($mysqli);
 
-    header("Location: productsearch.php");
+    echo '<script type="text/javascript">'; 
+    echo 'alert("Quote Saved");';
+    echo 'window.location.href = "productsearch.php";';
+    echo '</script>';
 }
 else 
 {
