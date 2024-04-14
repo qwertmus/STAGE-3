@@ -34,19 +34,19 @@ if (isset($_SESSION['user_id']))//User is logged in, page is accessible.
                     if($fee == "Unfiltered") //If product fee is unfiltered.
                     {
                         $findproducts = "SELECT * FROM products 
-                        WHERE ltv >= '$loantovalue'";
+                        WHERE ltv >= '$loantovalue' AND mortgage_term <= $term";
                         $result = mysqli_query($mysqli, $findproducts);
                     }
                     else if($fee == "Product Fee") //If product fee is filtered to having a product fee.
                     {
                         $findproducts = "SELECT * FROM products 
-                        WHERE ltv >= '$loantovalue' AND product_fee > 0";
+                        WHERE ltv >= '$loantovalue' AND mortgage_term <= $term AND product_fee > 0";
                         $result = mysqli_query($mysqli, $findproducts);
                     }
                     else //If product fee is filtered to having no product fee.
                     {
                         $findproducts = "SELECT * FROM products 
-                        WHERE ltv >= '$loantovalue' AND product_fee IS NULL";
+                        WHERE ltv >= '$loantovalue' AND mortgage_term <= $term AND product_fee IS NULL";
                         $result = mysqli_query($mysqli, $findproducts);
                     }
                 }
@@ -55,19 +55,19 @@ if (isset($_SESSION['user_id']))//User is logged in, page is accessible.
                     if($fee == "Unfiltered") //If product fee is unfiltered.
                     {
                         $findproducts = "SELECT * FROM products 
-                        WHERE ltv >= '$loantovalue' AND initial_period = '$period'";
+                        WHERE ltv >= '$loantovalue' AND mortgage_term <= $term AND initial_period = '$period'";
                         $result = mysqli_query($mysqli, $findproducts);
                     }
                     else if($fee == "Product Fee") //If product fee is filtered to having a product fee.
                     {
                         $findproducts = "SELECT * FROM products 
-                        WHERE ltv >= '$loantovalue' AND initial_period = '$period' AND product_fee > 0";
+                        WHERE ltv >= '$loantovalue' AND mortgage_term <= $term AND initial_period = '$period' AND product_fee > 0";
                         $result = mysqli_query($mysqli, $findproducts);
                     }
                     else //If product fee is filtered to having no product fee.
                     {
                         $findproducts = "SELECT * FROM products 
-                        WHERE ltv >= '$loantovalue' AND initial_period = '$period' AND product_fee IS NULL";
+                        WHERE ltv >= '$loantovalue' AND mortgage_term <= $term AND initial_period = '$period' AND product_fee IS NULL";
                         $result = mysqli_query($mysqli, $findproducts);
                     }
                 }
@@ -79,19 +79,19 @@ if (isset($_SESSION['user_id']))//User is logged in, page is accessible.
                     if($fee == "Unfiltered") //If product fee is unfiltered.
                     {
                         $findproducts = "SELECT * FROM products 
-                        WHERE ltv >= '$loantovalue' AND product_type = '$type'";
+                        WHERE ltv >= '$loantovalue' AND mortgage_term <= $term AND product_type = '$type'";
                         $result = mysqli_query($mysqli, $findproducts);
                     }
                     else if($fee == "Product Fee") //If product fee is filtered to having a product fee.
                     {
                         $findproducts = "SELECT * FROM products 
-                        WHERE ltv >= '$loantovalue' AND product_type = '$type' AND product_fee > 0";
+                        WHERE ltv >= '$loantovalue' AND mortgage_term <= $term AND product_type = '$type' AND product_fee > 0";
                         $result = mysqli_query($mysqli, $findproducts);
                     }
                     else //If product fee is filtered to having no product fee.
                     {
                         $findproducts = "SELECT * FROM products 
-                        WHERE ltv >= '$loantovalue' AND product_type = '$type' AND product_fee IS NULL";
+                        WHERE ltv >= '$loantovalue' AND mortgage_term <= $term AND product_type = '$type' AND product_fee IS NULL";
                         $result = mysqli_query($mysqli, $findproducts);
                     }
                 }
@@ -100,19 +100,19 @@ if (isset($_SESSION['user_id']))//User is logged in, page is accessible.
                     if($fee == "Unfiltered") //If product fee is unfiltered.
                     {
                         $findproducts = "SELECT * FROM products 
-                        WHERE ltv >= '$loantovalue' AND product_type = '$type' AND initial_period = '$period'";
+                        WHERE ltv >= '$loantovalue' AND mortgage_term <= $term AND product_type = '$type' AND initial_period = '$period'";
                         $result = mysqli_query($mysqli, $findproducts);
                     }
                     else if($fee == "Product Fee") //If product fee is filtered to having a product fee.
                     {
                         $findproducts = "SELECT * FROM products 
-                        WHERE ltv >= '$loantovalue' AND product_type = '$type' AND initial_period = '$period' AND product_fee > 0";
+                        WHERE ltv >= '$loantovalue' AND mortgage_term <= $term AND product_type = '$type' AND initial_period = '$period' AND product_fee > 0";
                         $result = mysqli_query($mysqli, $findproducts);
                     }
                     else //If product fee is filtered to having no product fee.
                     {
                         $findproducts = "SELECT * FROM products 
-                        WHERE ltv >= '$loantovalue' AND product_type = '$type' AND initial_period = '$period' AND product_fee IS NULL";
+                        WHERE ltv >= '$loantovalue' AND mortgage_term <= $term AND product_type = '$type' AND initial_period = '$period' AND product_fee IS NULL";
                         $result = mysqli_query($mysqli, $findproducts);
                     }
                 }
@@ -121,14 +121,14 @@ if (isset($_SESSION['user_id']))//User is logged in, page is accessible.
             else
             {
                 $findproducts = "SELECT * FROM products 
-                WHERE ltv >= '$loantovalue' AND product_type = '$type' AND initial_period = '$period'";
+                WHERE ltv >= '$loantovalue' AND mortgage_term <= $term AND product_type = '$type' AND initial_period = '$period'";
                 $result = mysqli_query($mysqli, $findproducts);
             }
         }
         else
         {
             $findproducts = "SELECT * FROM products 
-            WHERE ltv >= '$loantovalue'";
+            WHERE ltv >= '$loantovalue' AND mortgage_term <= $term";
             $result = mysqli_query($mysqli, $findproducts);
         }
     }
