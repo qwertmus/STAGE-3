@@ -17,6 +17,10 @@ if (isset($_SESSION['user_id']))//User is logged in, page is accessible.
     
         $i = 0;
 
+        $type = "Unfiltered";
+        $fee =  "Unfiltered";
+        $period = "Unfiltered";
+
         if(isset($_SESSION['type']) && isset($_SESSION['fee']) && isset($_SESSION['duration']))
         {
             $type = $_SESSION['type'];
