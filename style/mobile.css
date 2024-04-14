@@ -341,7 +341,7 @@ header ul li ul li a.logout {
   display: flex;
   flex-direction: column;
   padding: 50px 75px;
-  width: 1200px;
+  width: 1600px;
 }
 
 .productsearch-container h4
@@ -359,11 +359,24 @@ header ul li ul li a.logout {
   border-bottom: 2px solid #326838
 }
 
+.productsearch-filtertable
+{
+  min-width: 50%;
+  margin: 1vh 0px;
+  padding: 2vh 0px;
+}
+
 .productsearch-division
 {
   margin: 1vh 0px;
   padding: 1vh 0px;
 }
+
+.productsearch-forcedivide
+{
+  padding-bottom: 10px;
+}
+
 
 .productsearch-resultarea
 {
@@ -383,22 +396,20 @@ header ul li ul li a.logout {
 
 .productsearch-result
 {
-  padding:20px;
-  width: 95%;
+  padding: 20px 20px;
+  margin:auto;
+  min-width: 100%;
   box-shadow: 0px 0px 5px black;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: white;
 }
 
-.productsearch-result-clicked
+.productsearch-result-column
 {
-  padding:20px;
-  width: 95%;
-  box-shadow: 0px 0px 5px black;
-  display: flex;
-  justify-content: space-between;
-  background-color: #326838;
+  display: inline-block;
+  padding: 0px 10px;
 }
 
 .productsearch-title

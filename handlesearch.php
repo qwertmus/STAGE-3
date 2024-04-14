@@ -4,9 +4,8 @@ session_start();
 
 include "includes/connect.php";
 
-if (!empty($_POST['purpose']) && !empty($_POST['price']) && !empty($_POST['deposit']) && !empty($_POST['term'])) 
+if (!empty($_POST['price']) && !empty($_POST['deposit']) && !empty($_POST['term'])) 
 {
-    $_SESSION['purpose'] = $_POST['purpose'];
     $_SESSION['price'] = $_POST['price'];
     $_SESSION['deposit'] = $_POST['deposit'];
     $_SESSION['term'] = $_POST['term'];

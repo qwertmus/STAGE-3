@@ -4,51 +4,153 @@ include "includes/connect.php";
 
 session_start();
 
-if (isset($_SESSION['purpose']))//This should fire true if the user entered the fields and was redirected here successfully.
+if (isset($_SESSION['user_id']))//User is logged in, page is accessible.
 {
-
-    $purpose = validate($_SESSION['purpose']);
-    $price = floatval($_SESSION['price']);
-    $deposit = intval($_SESSION['deposit']);
-    $term = $_SESSION['term'];
-
-    $depositpercent = ($deposit / $price) * 100;
-    $loantovalue = 100 - $depositpercent;
-
-    $i = 0;
-
-    if(isset($_POST['filter-type']) && $_POST['filter-type'] != "Filter by Product Type" 
-    && isset($_POST['filter-fee']) && $_POST['filter-fee'] != "Includes Product Fee"
-    && isset($_POST['filter-period']) && $_POST['filter-period'] != "Filter by Initial Period" )
+    if (isset($_SESSION['price']))//This should fire true if the user entered the fields and was redirected here successfully.
     {
-        $type = $_POST['filter-type'];
-        $fee = $_POST['filter-fee'];
-        $period = $_POST['filter-period'];
+        $price = floatval($_SESSION['price']);
+        $deposit = intval($_SESSION['deposit']);
+        $term = $_SESSION['term'];
+    
+        $depositpercent = ($deposit / $price) * 100;
+        $loantovalue = 100 - $depositpercent;
+    
+        $i = 0;
 
-        $findproducts = "SELECT * FROM products 
-        WHERE ltv >= '$loantovalue' AND product_type = '$type'";
-        $result = mysqli_query($mysqli, $findproducts);
+        if(isset($_SESSION['type']) && isset($_SESSION['fee']) && isset($_SESSION['duration']))
+        {
+            $type = $_SESSION['type'];
+            $fee =  $_SESSION['fee'];
+            $period = $_SESSION['duration'];
+
+            if($type == "Unfiltered") //If product type is unfiltered.
+            {
+                if($period == "Unfiltered") //If product period is unfiltered.
+                {
+                    if($fee == "Unfiltered") //If product fee is unfiltered.
+                    {
+                        $findproducts = "SELECT * FROM products 
+                        WHERE ltv >= '$loantovalue'";
+                        $result = mysqli_query($mysqli, $findproducts);
+                    }
+                    else if($fee == "Product Fee") //If product fee is filtered to having a product fee.
+                    {
+                        $findproducts = "SELECT * FROM products 
+                        WHERE ltv >= '$loantovalue' AND product_fee > 0";
+                        $result = mysqli_query($mysqli, $findproducts);
+                    }
+                    else //If product fee is filtered to having no product fee.
+                    {
+                        $findproducts = "SELECT * FROM products 
+                        WHERE ltv >= '$loantovalue' AND product_fee IS NULL";
+                        $result = mysqli_query($mysqli, $findproducts);
+                    }
+                }
+                else //If product type is unfiltered but product period is filtered.
+                {
+                    if($fee == "Unfiltered") //If product fee is unfiltered.
+                    {
+                        $findproducts = "SELECT * FROM products 
+                        WHERE ltv >= '$loantovalue' AND initial_period = '$period'";
+                        $result = mysqli_query($mysqli, $findproducts);
+                    }
+                    else if($fee == "Product Fee") //If product fee is filtered to having a product fee.
+                    {
+                        $findproducts = "SELECT * FROM products 
+                        WHERE ltv >= '$loantovalue' AND initial_period = '$period' AND product_fee > 0";
+                        $result = mysqli_query($mysqli, $findproducts);
+                    }
+                    else //If product fee is filtered to having no product fee.
+                    {
+                        $findproducts = "SELECT * FROM products 
+                        WHERE ltv >= '$loantovalue' AND initial_period = '$period' AND product_fee IS NULL";
+                        $result = mysqli_query($mysqli, $findproducts);
+                    }
+                }
+            }
+            else if($type == "Tracker" || $type == "Fixed") //If product type is filtered (to Tracker or Fixed).
+            {
+                if($period == "Unfiltered") //If product period is unfiltered.
+                {
+                    if($fee == "Unfiltered") //If product fee is unfiltered.
+                    {
+                        $findproducts = "SELECT * FROM products 
+                        WHERE ltv >= '$loantovalue' AND product_type = '$type'";
+                        $result = mysqli_query($mysqli, $findproducts);
+                    }
+                    else if($fee == "Product Fee") //If product fee is filtered to having a product fee.
+                    {
+                        $findproducts = "SELECT * FROM products 
+                        WHERE ltv >= '$loantovalue' AND product_type = '$type' AND product_fee > 0";
+                        $result = mysqli_query($mysqli, $findproducts);
+                    }
+                    else //If product fee is filtered to having no product fee.
+                    {
+                        $findproducts = "SELECT * FROM products 
+                        WHERE ltv >= '$loantovalue' AND product_type = '$type' AND product_fee IS NULL";
+                        $result = mysqli_query($mysqli, $findproducts);
+                    }
+                }
+                else //If product type is filtered and product period is filtered.
+                {
+                    if($fee == "Unfiltered") //If product fee is unfiltered.
+                    {
+                        $findproducts = "SELECT * FROM products 
+                        WHERE ltv >= '$loantovalue' AND product_type = '$type' AND initial_period = '$period'";
+                        $result = mysqli_query($mysqli, $findproducts);
+                    }
+                    else if($fee == "Product Fee") //If product fee is filtered to having a product fee.
+                    {
+                        $findproducts = "SELECT * FROM products 
+                        WHERE ltv >= '$loantovalue' AND product_type = '$type' AND initial_period = '$period' AND product_fee > 0";
+                        $result = mysqli_query($mysqli, $findproducts);
+                    }
+                    else //If product fee is filtered to having no product fee.
+                    {
+                        $findproducts = "SELECT * FROM products 
+                        WHERE ltv >= '$loantovalue' AND product_type = '$type' AND initial_period = '$period' AND product_fee IS NULL";
+                        $result = mysqli_query($mysqli, $findproducts);
+                    }
+                }
+            }
+
+            else
+            {
+                $findproducts = "SELECT * FROM products 
+                WHERE ltv >= '$loantovalue' AND product_type = '$type' AND initial_period = '$period'";
+                $result = mysqli_query($mysqli, $findproducts);
+            }
+        }
+        else
+        {
+            echo "Did not detect";
+            $findproducts = "SELECT * FROM products 
+            WHERE ltv >= '$loantovalue'";
+            $result = mysqli_query($mysqli, $findproducts);
+        }
     }
-    else
+    else //The user has entered this page for the first time, without any values being entered.
     {
-        $findproducts = "SELECT * FROM products 
-        WHERE ltv >= '$loantovalue'";
-        $result = mysqli_query($mysqli, $findproducts);
+        $purpose = "Not Set";
+        $price = "0.00";
+        $deposit = "0.00";
+        $term = "0";
+        $depositpercent = 0;
+        $loantovalue = 0;
+    
+        $i = 0;
+
+        $type = "Unfiltered";
+        $fee =  "Unfiltered";
+        $period = "Unfiltered";
+    
+        $falsesearch = "SELECT * FROM products WHERE product_id = -1";
+        $result = mysqli_query($mysqli, $falsesearch);
     }
-} else //The user has entered this page for the first time, without any values being entered.
+}
+else //User is NOT already logged in; page is inaccessible.
 {
-
-    $purpose = "Not Set";
-    $price = "0.00";
-    $deposit = "0.00";
-    $term = "0";
-    $depositpercent = 0;
-    $loantovalue = 0;
-
-    $i = 0;
-
-    $falsesearch = "SELECT * FROM products WHERE product_id = -1";
-    $result = mysqli_query($mysqli, $falsesearch);
+    header("Location: home.html");
 }
 
 function validate($input)
@@ -85,12 +187,12 @@ function validate($input)
             <li>
                 <a href="#">
                     <i class="user"></i>
-                    Name
+                    <?php echo $_SESSION['user_name']; ?>
                     <i class="dropdown"></i>
                 </a>
 
                 <ul>
-                    <li><a href="#">My Profile</a></li>
+                    <li><a href="profile.php">My Profile</a></li>
                     <li><a href="#" class="logout">Logout</a></li>
                 </ul>
             </li>
@@ -111,7 +213,6 @@ function validate($input)
                 <form action="handlesearch.php" method="post">
                     <table class="productsearch-table">
                         <thead>
-                            <th class="productsearch-header">Mortgage Purpose</th>
                             <th class="productsearch-header">Property Price</th>
                             <th class="productsearch-header">Deposit Amount</th>
                             <th class="productsearch-header">Term of Loan</th>
@@ -120,14 +221,6 @@ function validate($input)
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="productsearch-td">
-                                    <select class="productsearch-field" name="purpose" required>
-                                        <option value="">Select Mortgage Purpose</option>
-                                        <option value="FTB">FTB</option>
-                                        <option value="Remortgage">Remortgage</option>
-                                        <option value="Moving House">Moving House</option>
-                                    </select>
-                                </td>
                                 <td class="productsearch-td">
                                     <input type="text" class="productsearch-field" name="price"
                                         placeholder="Value"></input>
@@ -149,33 +242,48 @@ function validate($input)
                             </tr>
                         </tbody>
                     </table>
-                    <div>
+                    <div class="productsearch-forcedivide">
                         <button class="productsearch-button">View Results</button>
                     </div>
                 </form>
-                <form action="handlesearch.php" method="post">
-                    <div>
-                        <select class="productsearch-field" name="filter-type">
-                            <option value="">Filter by Product Type</option>
-                            <option value="Fixed">Fixed</option>
-                            <option value="Tracker">Tracker</option>
-                        </select>
-                        <select class="productsearch-field" name="filter-fee">
-                            <option value="">Filter by Product Fee</option>
-                            <option value="Product Fee">Includes Product Fee</option>
-                            <option value="No Product Fee">No Product Fee</option>
-                        </select>
-                        <select class="productsearch-field" name="filter-period">
-                            <option value="">Filter by Initial Period</option>
-                            <option value="1">1 Year</option>
-                            <option value="2">2 Years</option>
-                            <option value="3">3 Years</option>
-                            <option value="4">4 Years</option>
-                            <option value="5">5 Years</option>
-                        </select>
-                        <button class="productsearch-button">Filter Results</button>
-                    </div>
+                <p>Current search results for: Property Price: £<?php echo $price;?>, Deposit Amount: £<?php echo $deposit;?>, Mortgage Term: <?php echo $term;?> years. Calculated LTV is: <?php echo $loantovalue;?>%</p>
+                <form action="filtersearch.php" method="post">
+                    <table class="productsearch-filtertable">
+                        <thead>
+                            <th class="productsearch-header">Filter by Product Type</th>
+                            <th class="productsearch-header">Filter by Product Fee</th>
+                            <th class="productsearch-header">Filter by Product Period</th>
+                        </thead>
+                        <tbody>
+                            <td>
+                                <select class="productsearch-field" name="filter-type">
+                                <option value="Unfiltered">Unfiltered</option>
+                                <option value="Fixed">Fixed</option>
+                                <option value="Tracker">Tracker</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="productsearch-field" name="filter-fee">
+                                <option value="Unfiltered">Unfiltered</option>
+                                <option value="Product Fee">Includes Product Fee</option>
+                                <option value="No Product Fee">No Product Fee</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="productsearch-field" name="filter-period">
+                                <option value="Unfiltered">Unfiltered</option>
+                                <option value="1">1 Year</option>
+                                <option value="2">2 Years</option>
+                                <option value="3">3 Years</option>
+                                <option value="4">4 Years</option>
+                                <option value="5">5 Years</option>
+                                </select>
+                            </td>
+                        </tbody>
+                    </table>
+                    <button class="productsearch-button">Filter Results</button>
                 </form>
+                <p>Current filter results for: Product Type: <?php echo $type;?>, Product Fee: <?php echo $fee;?>, Product Duration (Years): <?php echo $period;?>.</p>
             </div>
             <div class="productsearch-division">
                 <div class="productsearch-resultarea">
@@ -187,12 +295,16 @@ function validate($input)
                         <a class="productsearch-span" onclick="selectEntry(this)">
                         <form method="POST" action="saveasquote.php">
                             <div class="productsearch-result">
-                                <div>
+                                <div class ="productsearch-result-column">
                                     <p>Quote: </p>
                                     <p><?php echo $i; ?></p>
                                 </div>
                                 <input type="text" name="type" class="productsearch-title" value='<?php echo $entry['product_type']; ?>' readonly></input>
-                                <div>
+                                <div class ="productsearch-result-column">
+                                    <p>Duration (Years):</p>
+                                    <p><?php echo $entry['initial_period']; ?></p>
+                                </div>
+                                <div class ="productsearch-result-column">
                                     <p>Monthly Payment (£):</p>
                                     <?php
                                     $r = (($entry['interest_rate'] / 100) / 12);
@@ -203,15 +315,15 @@ function validate($input)
                                     ?>
                                     <input type="text" name="monthly" class="productsearch-text" value='<?php echo $monthly; ?>' readonly></input>
                                 </div>
-                                <div>
+                                <div class ="productsearch-result-column">
                                     <p>Initial Interest Rate (%):</p>
                                     <input type="text" name="interest" class="productsearch-text" value='<?php echo $entry['interest_rate']; ?>' readonly></input>
                                 </div>
-                                <div>
+                                <div class ="productsearch-result-column">
                                     <p>Product Fee:</p>
                                     <input type="text" name="fee" class="productsearch-text" value='<?php echo $entry['product_fee']; ?>' readonly></input>
                                 </div>
-                                <div>
+                                <div class ="productsearch-result-column">
                                     <p>Total Payable (£):</p>
                                     <?php
                                         $total = (($r * ($price - $deposit)) / (1 - pow(1 + $r, -$n))) * $n;
@@ -220,7 +332,7 @@ function validate($input)
                                     ?>
                                     <input type="text" name="total" class="productsearch-text" value='<?php echo $total; ?>' readonly></input>
                                 </div>
-                                <div>
+                                <div class ="productsearch-result-column">
                                     <input type="submit" name="savequote" class="productsearch-button" value="Save Quote"></input>
                                 </div>
                             </div>
