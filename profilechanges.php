@@ -8,19 +8,19 @@
             
             if ($mysqli->query($detailsQuery) === true) {
                 echo "QUERY UPDATE SUCCESS!";
-                header("Location: profile.php");
-
                 $_SESSION['user_name'] = $_POST['firstname'] . " " . $_POST['middlename'] . " " . $_POST['surname'];
             }
         }
+
+        header("Location: profile.php");
     } elseif (isset($_POST['changebrokerdetails'])) {
         $detailsQuery = "UPDATE brokers SET first_name = '{$_POST['firstname']}', middle_name = '{$_POST['middlename']}', surname = '{$_POST['surname']}', email_address = '{$_POST['email']}', dob = '{$_POST['dateofbirth']}' WHERE broker_id = {$_SESSION['user_id']};";
             
         if ($mysqli->query($detailsQuery) === true) {
             echo "QUERY UPDATE SUCCESS!";
-            header("Location: broker-account.php");
-
             $_SESSION['user_name'] = $_POST['firstname'] . " " . $_POST['middlename'] . " " . $_POST['surname'];
         }
+        
+        header("Location: broker-account.php");
     }
 ?>
