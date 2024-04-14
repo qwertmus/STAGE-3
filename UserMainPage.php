@@ -30,9 +30,8 @@ session_start();
   </div>
 
   <ul class="navbar">
-    <li><a href="home.html">Home</a></li>
-    <li><a href="register.html">Sign Up</a></li>
-    <li><a href="login.html">Login</a></li>
+    <li><a href="UserMainPage.php">Home</a></li>
+
     <li>
       <a href="#">
         <i class="user"></i>

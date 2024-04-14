@@ -39,7 +39,7 @@
 
   <ul class="navbar">
     <li><a href="broker-createproduct.html">Create product</a></li>
-    <li><a href="broker-manageproduct.html">Manage Product</a></li>
+    <li><a href="broker-manageproduct.php">Manage Product</a></li>
     <li>
       <a href="#">
         <i class="user"></i>

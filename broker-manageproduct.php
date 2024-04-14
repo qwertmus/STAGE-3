@@ -33,7 +33,7 @@
   </div>
 
   <ul class="navbar">
-    <li><a href="broker-account.html">Account</a></li>
+    <li><a href="broker-account.php">Account</a></li>
     <li><a href="broker-createproduct.html">Create Product</a></li>
     <li>
       <a href="#">
@@ -43,7 +43,7 @@
       </a>
 
       <ul>
-        <li><a href="broker-account.html">My Profile</a></li>
+        <li><a href="broker-account.php">My Profile</a></li>
         <li><a href="login.php" class="logout">Logout</a></li>
       </ul>
 

@@ -69,9 +69,7 @@ if (isset($_POST['compare'])) {
             <h1 class="logo-text"><span>Rose</span>Mortgage</h1>
         </div>
         <ul class="navbar">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="register.html">Sign Up</a></li>
-            <li><a href="login.php">Login</a></li>
+            <li><a href="UserMainPage.php">Home</a></li>
             <li>
                 <a href="#">
                     <i class="user"></i>
