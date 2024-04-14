@@ -127,7 +127,6 @@ if (isset($_SESSION['user_id']))//User is logged in, page is accessible.
         }
         else
         {
-            echo "Did not detect";
             $findproducts = "SELECT * FROM products 
             WHERE ltv >= '$loantovalue'";
             $result = mysqli_query($mysqli, $findproducts);
