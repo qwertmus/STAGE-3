@@ -8,7 +8,7 @@ if(isset($_POST['savequote']))
 {
     $userid = $_SESSION['user_id'];
     $type = $_POST['type'];
-    $monthly = $_POST['monthly'];
+    $monthly = validate($_POST['monthly']);
     $interest = $_POST['interest'];
     $fee = $_POST['fee'];
     $total = validate($_POST['total']);
