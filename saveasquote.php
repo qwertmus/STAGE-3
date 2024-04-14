@@ -13,9 +13,9 @@ if(isset($_POST['savequote']))
     $fee = $_POST['fee'];
     $total = validate($_POST['total']);
 
-    $check = "SELECT user_id, mortgage_type, monthly_payment, interest_rate, total_payable FROM quotes 
+    $check = "SELECT user_id, mortgage_type, monthly_payment, total_payable FROM quotes 
     WHERE user_id = '$userid' AND mortgage_type = '$type' AND monthly_payment = '$monthly' 
-    AND interest_rate ='$interest' AND total_payable = '$total'";
+    AND total_payable = '$total'";
     
     $result = mysqli_query($mysqli, $check);
 
