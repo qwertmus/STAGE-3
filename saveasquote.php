@@ -10,7 +10,7 @@ if(isset($_POST['savequote']))
     $type = $_POST['type'];
     $monthly = validate($_POST['monthly']);
     $interest = $_POST['interest'];
-    $fee = $_POST['fee'];
+    $fee = validate($_POST['fee']);
     $total = validate($_POST['total']);
 
     $check = "SELECT user_id, mortgage_type, monthly_payment, total_payable FROM quotes 
