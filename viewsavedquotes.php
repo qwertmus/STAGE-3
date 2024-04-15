@@ -119,7 +119,7 @@ if (isset($_POST['compare'])) {
                                     <p><?php echo $entry['monthly_payment']; ?></p>
                                 </div>
                                 <div class ="productsearch-result-column">
-                                    <p>Initial Interest Rate (%):</p>                                    <p><?php echo $entry['monthly_payment']; ?></p>
+                                    <p>Initial Interest Rate (%):</p>                                    
                                     <p><?php echo $entry['interest_rate']; ?></p>
                                 </div>
                                 <div class ="productsearch-result-column">
