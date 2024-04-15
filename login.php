@@ -22,14 +22,11 @@
       <li>
        <a href="#">
           <i class="user"></i>
-         Name
+        
            <i class="dropdown"></i>
         </a>
 
-      <ul>
-        <li><a href="#">My Profile</a></li>
-        <li><a href="#" class="logout">Logout</a></li>
-      </ul>
+
 
      </li>
     </ul>
