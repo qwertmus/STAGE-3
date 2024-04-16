@@ -41,7 +41,7 @@
     background-color: #fff;
 }
 
-.inner-container .form :where( .input-box input, .select-box){
+.inner-container .form :where( .input-box input){
     position: relative;
     height: 50%;
     width: 100%;
@@ -51,7 +51,7 @@
     margin-top: 8px;
     border: 1px solid #326838;
     border-radius: 6px;
-    padding: 0 15px;
+    padding: 10px 15px;
 }
 
 .inner-container .form .column{
