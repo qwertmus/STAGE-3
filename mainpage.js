@@ -9,5 +9,6 @@ function calculateAffordability(event) {
     let affordability = (income - expenditure) * 4;
 
     // Display the result
-    alert("Your affordability is: £" + affordability.toFixed(2));
+    //alert("Your affordability is: £" + affordability.toFixed(2));
+    document.getElementById("result").innerHTML = affordability;
 }
