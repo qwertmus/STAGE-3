@@ -26,6 +26,7 @@
     <title>Rose Mortgage | Home</title>
     <link rel="stylesheet" href="style/mobile.css">
     <link rel="stylesheet" media="only screen and (min-width:720px)" href="style/desktop.css"/>
+    <link rel="stylesheet" href="style/broker-account.css">
 </head>
 
 <body>
