@@ -1,0 +1,101 @@
+
+
+
+.inner-container{
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px;
+    border-radius:8px;
+    box-shadow: rgb(47, 171, 47);
+}
+
+.main-container{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.a-header{
+    background-color: #fff;
+}
+
+.inner-container header{
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+}
+
+.inner-container  button{
+    height: 55px;
+    width: 40%;
+    background-color:#326838;
+    font-size: 1rem;
+    font-weight: 400;
+    border: none;
+    margin-top: 50px;
+    cursor: pointer;
+    border-radius: 6px; 
+    transition: all 0.2s ease;
+}
+
+.inner-container  button:hover{
+    background-color: #42874a;
+}
+
+
+.inner-container .form{
+    margin-top: 30px;
+}
+
+.inner-container .form .input-box{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.inner-container .input-box label{
+    color: #333;
+
+}
+
+.main-container .affordability-container .a-input-box input{
+    padding: 10px 15px;
+    width: 80%;
+}
+
+.inner-container .form :where( .input-box input){
+    position: relative;
+    height: 50%;
+    width: 80%;
+    outline:none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #326838;
+    border-radius: 6px;
+    padding: 10px 15px;
+}
+
+.main-container .a-input-box input{
+    position: relative;
+    height: 50%;
+    width: 80%;
+    outline:none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #326838;
+    border-radius: 6px;
+    padding: 10px 15px;
+}
+
+.main-container .a-label {
+    
+    text-align: center;
+    display: block;
+    margin: 7px auto;
+    width: 300px;
+}
