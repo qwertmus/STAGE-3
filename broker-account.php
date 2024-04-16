@@ -64,34 +64,35 @@
 </header>
 
 <!-- header ends -->
-
-<h4>My Profile</h4>
+<div class="main-container">
+  <div class="inner-container">
+     <header class="a-header">My Broker Profile</header>
       <div class = "affordability-container">
         <div class="input-group">
     <form action="profilechanges.php" class="form" method="post">
           <div class="input-box">
-              <label>First Name</label>
+              <label class="a-label">First Name</label>
               <?php echo "<input type='text' value={$profileArray['first_name']} name='firstname' placeholder='Enter your first name' maxlength='30'>"; ?>
           </div>
 
           <div class="input-box">
-              <label>Middle Name</label>
+              <label class="a-label">Middle Name</label>
               <?php echo "<input type='text' value={$profileArray['middle_name']} name='middlename' placeholder='Enter your middle name' maxlength='30'>"; ?>
           </div>
 
           <div class="input-box">
-              <label>Surname</label>
+              <label class="a-label">Surname</label>
               <?php echo "<input type='text' value={$profileArray['surname']} name='surname' placeholder='Enter your surname' maxlength='30'>"; ?>
           </div>
       </div>
 
-      <div class="input-box">
-          <label>Your Email</label>
+      <div class="a-input-box">
+          <label class="a-label">Your Email</label>
           <?php echo "<input type='text' value={$profileArray['email_address']} name='email' placeholder='Enter your email'>"; ?>
       </div>
 
-      <div class="input-box">
-          <label>DOB</label>
+      <div class="a-input-box">
+          <label class="a-label">DOB</label>
           <?php echo "<input type='text' value={$profileArray['date_of_birth']} name='dateofbirth' placeholder='Enter your date of birth'>"; ?>
       </div>
 
@@ -99,15 +100,8 @@
     </form>
 
 
-     
-
-
-
-
-
-
-
-
+    </div>
+  </div>
   </div>
 </div>
     <!-- footer starts -->
