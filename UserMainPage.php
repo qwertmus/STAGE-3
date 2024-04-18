@@ -66,7 +66,7 @@ session_start();
         <h3><?php echo $_SESSION['user_name']; ?></h3>
               
           <div class="UserMainPagefirst">      
-              <h4>Receive mortgage quote</h4>  
+              <h4>Create mortgage quote</h4>  
               <a href = productsearch.php>
               <img src="images\calculate-mainUserpage.jpg" alt="calculate quote image" height=250px width=800px>
               </a>
