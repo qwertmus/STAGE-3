@@ -25,7 +25,9 @@ function calculateAffordability(event) {
     const numberOfPayments = mortgageTerm * 12;
   
     // Calculate the monthly payment using the formula
-    const monthlyPayment = principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+    const monthlyPayment1 = principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
   
+    const monthlyPayment = '£' + monthlyPayment1;
+
     return monthlyPayment;
   }
