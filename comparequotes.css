@@ -1,0 +1,47 @@
+.comparisontable {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.quotetocompare {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 45%;
+}
+
+.quotetocompare label {
+    font-weight: bold;
+}
+
+.quotetocompare select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.quotetocompare p {
+    margin-bottom: 5px;
+}
+
+button[name="compare"] {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    padding: 12px;
+    margin: 20px auto;
+    border: 2px solid #326838;
+    border-radius: 4px; 
+    background: white;
+    color: #326838;
+    font-size: medium; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[name="compare"]:hover {
+    background: #778899;
+    color:#fff;
+}

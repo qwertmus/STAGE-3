@@ -59,6 +59,8 @@ if (isset($_POST['compare'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rose Mortgage | View Saved Quotes</title>
     <link rel="stylesheet" href="style/mobile.css">
+    <link rel="stylesheet" href="comparequotes.css">
+
     <link rel="stylesheet" media="only screen and (min-width:720px)" href="style/desktop.css" />
 </head>
 
@@ -146,7 +148,8 @@ if (isset($_POST['compare'])) {
                 <h4>Compare mortgage quotes</h4>
                 <p>You can also compare the quotes on this page.</p>
 
-                <div>
+                <div class = "comparisontable">
+                    <div class="quotetocompare">
                     <label for="compare1">Mortgage Quote: </label>
                     <select name="quote1" id="compare1">
                         <!--
@@ -192,7 +195,7 @@ if (isset($_POST['compare'])) {
                     ?>
                 </div>
 
-                <div>
+                <div class="quotetocompare">
                     <label for="compare2">Mortgage Quote: </label>
                     <select name="quote2" id="compare2">
                         <?php
@@ -229,9 +232,12 @@ if (isset($_POST['compare'])) {
                         echo "</p>";
                     ?>
                 </div>
+                </div>
+                <div class="compare-btn">
+                    <button name="compare">Compare</button>
+                </div>
+                </form>
 
-                <button name="compare">Compare</button>
-            </form>
         </div>
     </div>
     </div>
