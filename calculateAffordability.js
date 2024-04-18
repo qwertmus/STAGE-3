@@ -8,12 +8,10 @@ function calculateAffordability(event) {
     const mortgageTerm = parseFloat(document.getElementById("mortgageterm").value);
   
     // Calculate monthly payment
-    const monthlyPayment1 = calculateMonthlyPayment(interestRate, propertyValue, deposit, mortgageTerm);
-  
-    const monthlyPayment = "£" + monthlyPayment1;
-    
+    const monthlyPayment = calculateMonthlyPayment(interestRate, propertyValue, deposit, mortgageTerm);
+
     // Display result
-    alert("Monthly Payment: £" + monthlyPayment.toFixed(2));
+    alert("Monthly Payment: " + monthlyPayment.toFixed(2));
   }
   
   function calculateMonthlyPayment(interestRate, propertyValue, deposit, mortgageTerm) {
@@ -27,9 +25,7 @@ function calculateAffordability(event) {
     const numberOfPayments = mortgageTerm * 12;
   
     // Calculate the monthly payment using the formula
-    const monthlyPayment1 = principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
-  
-    const monthlyPayment = "£" + monthlyPayment1;
+    const monthlyPayment = principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
 
     return monthlyPayment;
   }
