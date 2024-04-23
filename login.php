@@ -1,3 +1,7 @@
+<?php
+ini_set('display_errors', 0);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,6 +48,14 @@
 
 <div class="main-container">
     <form class = "user-form" action="loginconfig.php" method="post">
+ <?php
+                    //in case of any errors, it should diplay this php code begin
+                    if($loginerror)
+                    {
+                        echo '<div style="color:red;"> *Invalid email or password.</div>';
+                    }
+                   
+                    ?>
     <h3>Login</h3>
           <input type="email" name="email" required placeholder="Email">
           <input type="password" name="password" required placeholder="Password">
