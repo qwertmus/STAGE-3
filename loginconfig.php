@@ -46,7 +46,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: broker-account.php");
         exit();
     } else {
-        echo "Invalid email or password.";
+        $loginerror = 'yes';
+        include('login.php');
+        exit;
     }
 }
 
