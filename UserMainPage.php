@@ -46,12 +46,6 @@ session_start();
 
     </li>
   </ul>
-      <!--menu icon -->
-      <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-  </div>
 
 </header>
 

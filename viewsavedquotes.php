@@ -85,14 +85,11 @@ if (isset($_POST['compare'])) {
                 </ul>
             </li>
         </ul>
-        <!--menu icon -->
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
     </header>
     <!-- header ends -->
+
+
+
     <div class="main-container">
         <div class="productsearch-container">
             <div class="productsearch-division">
@@ -107,6 +104,9 @@ if (isset($_POST['compare'])) {
                         ?>
                         <a class="productsearch-span">
                         <form method="POST" action="deletequote.php">
+                            
+                        <input type="hidden" name="deletequote" value="1">
+
                             <div class="productsearch-result">
                                 <div class ="productsearch-result-column">
                                     <p>Quote Unique ID:</p>
@@ -132,8 +132,8 @@ if (isset($_POST['compare'])) {
                                     <p>Total Payable:</p>
                                     <p><?php echo $entry['total_payable']; ?></p>
                                 </div>
-                                <div class ="productsearch-result-column">
-                                    <input type="submit" name="deletequote" class="productsearch-button" value="Delete Quote"></input>
+                                <div class="productsearch-result-column">
+                                    <input type="button" onclick="validatedeletion(<?php echo $entry['quote_id']; ?>)" class="productsearch-button" value="Delete Quote"></input>
                                 </div>
                             </div>
                         </form>
@@ -144,7 +144,7 @@ if (isset($_POST['compare'])) {
                 </div>
             </div>
 
-            <form method="POST" action="viewsavedquotes.php">
+            <form method="POST" action="viewsavedquotes.php" onsubmit="return comparisonvalidation();">
                 <h4>Compare mortgage quotes</h4>
                 <p>You can also compare the quotes on this page.</p>
 
@@ -152,12 +152,7 @@ if (isset($_POST['compare'])) {
                     <div class="quotetocompare">
                     <label for="compare1">Mortgage Quote: </label>
                     <select name="quote1" id="compare1">
-                        <!--
-                        <option value="1">Quote 1</option>
-                        <option value="2">Quote 2</option>
-                        <option value="3">Quote 3</option>
-                        <option value="4">Quote 4</option>
-                        -->
+                    <option value="">Select a quote</option>
 
                         <?php
                             #I couldn't make finding quotes work the same way as the person who made this page did sadly, so i had to do this
@@ -198,6 +193,7 @@ if (isset($_POST['compare'])) {
                 <div class="quotetocompare">
                     <label for="compare2">Mortgage Quote: </label>
                     <select name="quote2" id="compare2">
+                    <option value="">Select a quote</option>
                         <?php
                             $quoteResult = $mysqli->query($findquotes);
 
@@ -207,6 +203,7 @@ if (isset($_POST['compare'])) {
                             }
                         ?>
                     </select>
+
 
                     <br>
 
@@ -234,13 +231,17 @@ if (isset($_POST['compare'])) {
                 </div>
                 </div>
                 <div class="compare-btn">
-                    <button name="compare">Compare</button>
+                <button type="submit" name="compare">Compare</button>
                 </div>
+
                 </form>
 
         </div>
     </div>
     </div>
+
+
+
     <!-- footer starts -->
     <footer>
         <div class="footer-container">
@@ -267,6 +268,10 @@ if (isset($_POST['compare'])) {
         </div>
     </footer>
     <!-- footer ends -->
+
+
+    <script src="validatequotedeletion.js"></script>
+    <script src="comparisonvalidation.js"></script>
 </body>
 
 </html>

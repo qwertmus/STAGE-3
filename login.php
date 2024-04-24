@@ -30,16 +30,8 @@ ini_set('display_errors', 0);
            <i class="dropdown"></i>
         </a>
 
-
-
      </li>
     </ul>
-      <!--menu icon -->
-      <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-  </div>
 
 </header>
 <!--header ends-->
@@ -52,7 +44,7 @@ ini_set('display_errors', 0);
                     //in case of any errors, it should diplay this php code begin
                     if($loginerror)
                     {
-                        echo '<div style="color:red;"> *Invalid email or password.</div>';
+                        echo '<div style="color:red;"> Invalid email or password.</div>';
                     }
                    
                     ?>
