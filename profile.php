@@ -29,7 +29,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rose Mortgage | profile</title>
+    <title>Rose Mortgage | My Profile</title>
     <link rel="stylesheet" href="style/mobile.css">
     <link rel="stylesheet" media="only screen and (min-width:720px)" href="style/desktop.css"/>
 

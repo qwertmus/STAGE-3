@@ -59,9 +59,9 @@ if (isset($_POST['compare'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rose Mortgage | View Saved Quotes</title>
+    <title>Rose Mortgage | Saved Quotes</title>
     <link rel="stylesheet" href="style/mobile.css">
-    <link rel="stylesheet" href="comparequotes.css">
+    <link rel="stylesheet" href="style/comparequotes.css">
 
     <link rel="stylesheet" media="only screen and (min-width:720px)" href="style/desktop.css" />
 </head>
@@ -280,8 +280,8 @@ if (isset($_POST['compare'])) {
     <!-- footer ends -->
 
 
-    <script src="validatequotedeletion.js"></script>
-    <script src="comparisonvalidation.js"></script>
+    <script src="js/validatequotedeletion.js"></script>
+    <script src="js/comparisonvalidation.js"></script>
 </body>
 
 </html>

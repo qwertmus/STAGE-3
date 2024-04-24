@@ -20,7 +20,7 @@
     <title>Rose Mortgage | Home</title>
     <link rel="stylesheet" href="style/mobile.css">
     <link rel="stylesheet" media="only screen and (min-width:720px)" href="style/desktop.css"/>
-    <script src="productDeleteConfirmation.js"></script>
+    <script src="js/productDeleteConfirmation.js"></script>
 </head>
 
 <body>
