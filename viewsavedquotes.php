@@ -26,6 +26,7 @@ if (isset($_POST['compare'])) {
     while ($obj = $quote1Result->fetch_object())
     {
         $quote1Info = array(
+            "quote_id" => $obj->quote_id,
             "mortgage_type" => $obj->mortgage_type,
             "monthly_payment" => $obj->monthly_payment,
             "interest_rate" => $obj->interest_rate,
@@ -40,6 +41,7 @@ if (isset($_POST['compare'])) {
     while ($obj = $quote2Result->fetch_object())
     {
         $quote2Info = array(
+            "quote_id" => $obj->quote_id,
             "mortgage_type" => $obj->mortgage_type,
             "monthly_payment" => $obj->monthly_payment,
             "interest_rate" => $obj->interest_rate,
@@ -168,6 +170,10 @@ if (isset($_POST['compare'])) {
                     <br>
 
                     <?php 
+                        echo "<p> Quote ID: ";
+                        if ($quote1Info != null) { echo $quote1Info['quote_id']; }
+                        echo "</p>";
+
                         echo "<p>Mortgage type: ";
                         if ($quote1Info != null) { echo $quote1Info['mortgage_type']; }
                         echo "</p>";
@@ -208,6 +214,10 @@ if (isset($_POST['compare'])) {
                     <br>
 
                     <?php 
+                        echo "<p> Quote ID: ";
+                        if ($quote2Info != null) { echo $quote2Info['quote_id']; }
+                        echo "</p>";
+
                         echo "<p>Mortgage type: ";
                         if ($quote2Info != null) { echo $quote2Info['mortgage_type']; }
                         echo "</p>";
